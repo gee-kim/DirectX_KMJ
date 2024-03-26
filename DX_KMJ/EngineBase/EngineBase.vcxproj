@@ -212,6 +212,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="PreCompile.h" />
     <ClInclude Include="Transform.h">
       <SubType>
       </SubType>
@@ -259,6 +260,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="PreCompile.cpp" />
     <ClCompile Include="Transform.cpp">
       <SubType>
       </SubType>
