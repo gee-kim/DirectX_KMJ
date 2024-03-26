@@ -4,6 +4,9 @@
     <Filter Include="Core">
       <UniqueIdentifier>{1338ed61-f14c-449a-a61b-30aeeaec59da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{41d6e2e8-c777-412a-b746-fe8cbe9b58fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp">

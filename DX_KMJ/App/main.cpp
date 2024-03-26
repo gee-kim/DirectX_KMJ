@@ -1,12 +1,14 @@
 #include <Windows.h>
 #include <string_view>
 
-#include <EnginePlatform/EngineWindow.h>
+#include <EngineCore/EngineCore.h>
+#include <Contents/ContentsCore.h>
 // EnginePlatform에 존재하는 enginewindow기능을 당연히 이용하고 싶을 것이다.
 
 #pragma comment (lib, "EngineBase.lib")
 #pragma comment (lib, "EnginePlatform.lib")
 #pragma comment (lib, "EngineCore.lib")
+#pragma comment (lib, "Contents.lib")
 
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -14,7 +16,5 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_ LPWSTR    lpCmdLine,
 	_In_ int       nCmdShow)
 {
-	UEngineWindow NewWindow;
-	NewWindow.Open();
-
+	UEngineCore::Start<UContentsCore>(hInstance);
 }
