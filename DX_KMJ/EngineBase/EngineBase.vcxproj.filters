@@ -102,7 +102,7 @@
       <UniqueIdentifier>{40dd519c-dfec-4e66-90e0-bf938d9a56ca}</UniqueIdentifier>
     </Filter>
     <Filter Include="PreCompile">
-      <UniqueIdentifier>{c113d409-4f06-4478-a076-67e0b0a09798}</UniqueIdentifier>
+      <UniqueIdentifier>{6d3a46cf-88d8-408e-a836-c389d6303fd5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
