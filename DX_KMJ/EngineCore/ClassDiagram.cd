@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UserCore" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EngineCore.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UEngineCore" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQCAAEAEECQAABAIAEgAAAAgAQAAgCABAgAgAACEAIA=</HashCode>
+      <FileName>EngineCore.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ULevel" Collapsed="true">
+    <Position X="8" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAgAEAIgAAgAAAAAAAAAAAAhCgQAAAQAA=</HashCode>
+      <FileName>Level.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UTickObject" Collapsed="true">
+    <Position X="3.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEAAQAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgAAAgRAA=</HashCode>
+      <FileName>TickObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UWorldObject">
+    <Position X="10.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAABhEAAAACA=</HashCode>
+      <FileName>WorldObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AActor" Collapsed="true">
+    <Position X="3.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAFEAAAIAAAAAAAAgAAAgQAE=</HashCode>
+      <FileName>Actor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AGameMode" Collapsed="true">
+    <Position X="3.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAACAAAAAgAAAAAAA=</HashCode>
+      <FileName>GameMode.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UActorComponent" Collapsed="true">
+    <Position X="3.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAIgAAAIAAA=</HashCode>
+      <FileName>ActorComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="USceneComponent" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>SceneComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCamera" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAACAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="URenderer" Collapsed="true">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEABAgAAAgQAA=</HashCode>
+      <FileName>Renderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UEngineGraphicDevice" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgiAIxIAAAAAAAQBAAACAAgIACggAAAAAAA=</HashCode>
+      <FileName>EngineGraphicDevice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UEngineRenderTarget" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAACAQABAAAAAAJAAAAAAAEAAAAAgAABAAAA=</HashCode>
+      <FileName>EngineRenderTarget.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UEngineTexture" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAIAFAAAAAwQAACECA=</HashCode>
+      <FileName>EngineTexture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="FEngineOption" Collapsed="true">
+    <Position X="13" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAgAAAAAAAAAAAAAAAAAABCBAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>EngineOption.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

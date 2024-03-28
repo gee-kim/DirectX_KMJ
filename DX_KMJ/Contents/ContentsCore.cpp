@@ -28,5 +28,7 @@ void UContentsCore::Initialize()
 
 	UEngineSound::SoundPlay("anipang_ingame.wav");
 
+
+
 	int a = 0;
 }
