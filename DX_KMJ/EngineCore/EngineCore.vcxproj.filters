@@ -34,6 +34,9 @@
     <Filter Include="Object\Rendering\Component">
       <UniqueIdentifier>{8f88a08e-57b4-4a73-8e98-9e4a66939076}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\EngineContent">
+      <UniqueIdentifier>{880fbd85-2ed4-41c0-9ba6-99b033deb781}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp">
@@ -81,6 +84,9 @@
     <ClCompile Include="WorldObject.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="DefaultSceneComponent.cpp">
+      <Filter>Object\EngineContent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineCore.h">
@@ -127,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="WorldObject.h">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultSceneComponent.h">
+      <Filter>Object\EngineContent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
