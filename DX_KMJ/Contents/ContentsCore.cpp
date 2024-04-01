@@ -20,7 +20,7 @@ void UContentsCore::Initialize()
 	UEngineDirectory Dir;
 	Dir.MoveToSearchChild("Resources");
 	
-	std::list<UEngineFile> Files = Dir.AllFile({ ".wav" });
+	std::vector<UEngineFile> Files = Dir.GetAllFile({ ".wav" });
 	for (UEngineFile& File : Files)
 	{
 		UEngineSound::Load(File.GetFullPath());
