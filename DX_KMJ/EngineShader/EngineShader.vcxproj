@@ -136,7 +136,9 @@
     <FxCompile Include="ImageShaderTest.fx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="EngineShaderBase.hlsli" />
     <None Include="EngineVertex.hlsli" />
+    <None Include="TransformData.hlsli" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,6 +10,9 @@
     <Filter Include="Level">
       <UniqueIdentifier>{89e33a8a-1ba7-4847-8638-b9ca86b20cb0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level\Object">
+      <UniqueIdentifier>{94cd211b-c9f9-466d-a03a-8dcebac80ab1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">
@@ -21,6 +24,9 @@
     <ClInclude Include="PlayGameMode.h">
       <Filter>Level</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Level\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -31,6 +37,9 @@
     </ClCompile>
     <ClCompile Include="PlayGameMode.cpp">
       <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Level\Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
