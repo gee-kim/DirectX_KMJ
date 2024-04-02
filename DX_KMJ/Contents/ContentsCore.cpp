@@ -17,16 +17,16 @@ void UContentsCore::Initialize()
 	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
 	GEngine->ChangeLevel("PlayLevel");
 
-	UEngineDirectory Dir;
-	Dir.MoveToSearchChild("Resources");
-	
-	std::vector<UEngineFile> Files = Dir.GetAllFile({ ".wav" });
-	for (UEngineFile& File : Files)
-	{
-		UEngineSound::Load(File.GetFullPath());
-	}
+	//UEngineDirectory Dir;
+	//Dir.MoveToSearchChild("Resources");
+	//
+	//std::vector<UEngineFile> Files = Dir.GetAllFile({ ".wav" });
+	//for (UEngineFile& File : Files)
+	//{
+	//	UEngineSound::Load(File.GetFullPath());
+	//}
 
-	UEngineSound::SoundPlay("anipang_ingame.wav");
+	//UEngineSound::SoundPlay("anipang_ingame.wav");
 
 
 
