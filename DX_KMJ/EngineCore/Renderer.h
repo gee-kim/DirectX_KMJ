@@ -32,7 +32,11 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
+	void ResCopy(UEngineShader* _Shader);
+
 private:
+	void RenderingTransformUpdate(std::shared_ptr<UCamera> _Camera);
+
 	void Render(float _DeltaTime);
 
 	std::shared_ptr<UEngineInputLayOut> LayOut;
