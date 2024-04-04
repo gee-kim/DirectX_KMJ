@@ -22,6 +22,6 @@ protected:
 
 private:
 	URenderer* Renderer;
-
+	float4 Color;
 };
 
