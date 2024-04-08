@@ -1,13 +1,13 @@
 #include "PreCompile.h"
 #include "Player.h"
 #include <EngineCore/Renderer.h>
+#include <EngineCore/SpriteRenderer.h>
 
 APlayer::APlayer()
 {
-	Renderer = CreateDefaultSubObject<URenderer>("Renderer");
+	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	InputOn();
 
-	Renderer->SetMesh("Rect");
-	Renderer->SetMaterial("2DImage");
 }
 
 APlayer::~APlayer()
@@ -20,10 +20,8 @@ void APlayer::BeginPlay()
 	// 랜더가 이때 들어간간다.
 
 	SetActorScale3D(FVector(100.0f, 100.0f, -100.0f));
-	// 안해주면 터져야한다.
-	Renderer->Resources->SettingConstantBuffer("OutPutColor", Color);
-	// 내부에서 샘플러도 같이 찾을
-	Renderer->Resources->SettingTexture("Image", "pic_mary.png", "POINT");
+	
+	
 }
 
 void APlayer::Tick(float _DeltaTime)
