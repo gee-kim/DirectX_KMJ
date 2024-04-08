@@ -176,6 +176,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="DefaultSceneComponent.h" />
     <ClInclude Include="DirectXHelper.h" />
+    <ClInclude Include="EngineBlend.h" />
     <ClInclude Include="EngineBuffer.h" />
     <ClInclude Include="EngineConstantBuffer.h" />
     <ClInclude Include="EngineCore.h">
@@ -225,6 +226,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DefaultSceneComponent.cpp" />
     <ClCompile Include="DirectXHelper.cpp" />
+    <ClCompile Include="EngineBlend.cpp" />
     <ClCompile Include="EngineBuffer.cpp" />
     <ClCompile Include="EngineConstantBuffer.cpp" />
     <ClCompile Include="EngineCore.cpp">
@@ -273,6 +275,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <CopyFileToFolders Include="ThirdParty\DirectxTex\Debug\DirectXTex.pdb">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\DirectxTex\Release\DirectXTex.pdb">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="ThirdParty\DirectxTex\Debug\DirectXTex.lib">
