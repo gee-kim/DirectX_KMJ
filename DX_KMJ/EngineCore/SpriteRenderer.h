@@ -1,5 +1,6 @@
 #pragma once
 #include "Renderer.h"
+#include "EngineEnums.h"
 #include "EngineSprite.h"
 
 struct FCuttingData
@@ -57,7 +58,7 @@ public:
 	void SetPlusColor(float4 _Color);
 	void SetSamplering(ETextureSampling _Value);
 
-	void CreateAnimation(std::string_view _AnimationName, std::string_view _SpriteName, float _Inter, bool _Loop = true, int _Start = -1, int _End = -1);
+	void CreateAnimation(std::string_view _AnimationName, std::string_view _SpriteName, float _Inter = 0.1f, bool _Loop = true, int _Start = -1, int _End = -1);
 
 	void CreateAnimation(std::string_view _AnimationName, std::string_view _SpriteName, std::vector<float> _Inter, std::vector<int> _Frame, bool _Loop = true);
 	
@@ -66,6 +67,8 @@ public:
 	void SetAutoSize(float _ScaleRatio, bool _AutoSize);
 	void SetSpriteInfo(const FSpriteInfo& _Info);
 
+	void SetDir(EEngineDir _Dir);
+	
 protected:
 	void Tick(float _DeltaTime) override;
 
@@ -73,6 +76,8 @@ private:
 	bool AutoSize = false;
 	float ScaleRatio = 1.0f;
 	FSpriteInfo CurInfo;
+
+	EEngineDir Dir = EEngineDir::MAX;
 
 	FCuttingData CuttingDataValue;
 	float4 PlusColor = float4::Zero;
