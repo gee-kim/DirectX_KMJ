@@ -1,6 +1,7 @@
 #include "PreCompile.h"
 #include "ContentsCore.h"
 #include "PlayGameMode.h"
+#include <EngineCore/EngineSprite.h>
 
 UContentsCore::UContentsCore()
 {
@@ -22,10 +23,11 @@ void UContentsCore::Initialize()
 		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".png" }, true);
 		for (UEngineFile& File : Files)
 		{
-			UEngineTexture::Load(File.GetFullPath());
+			UEngineSprite::Load(File.GetFullPath());
 		}
 	
 	}
+
 
 	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
 	GEngine->ChangeLevel("PlayLevel");

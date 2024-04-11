@@ -6,3 +6,5 @@
 #include <EngineCore/EngineSampler.h>
 #include <EngineCore/Renderer.h>
 #include <EngineCore/EngineShaderResources.h>
+#include "ContentsConstValue.h"
+#include "ContentsEnum.h"

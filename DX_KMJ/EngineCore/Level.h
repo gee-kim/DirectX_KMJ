@@ -1,8 +1,8 @@
 #pragma once
 #include "TickObject.h"
 #include <EngineBase/NameObject.h>
-
-
+#include <set>
+#include <map>
 
 // final을 사용하면 이제 ULevel 상속받은 클래스를 만들수가 없어요.
 
