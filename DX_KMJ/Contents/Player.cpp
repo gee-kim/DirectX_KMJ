@@ -22,6 +22,11 @@ void APlayer::BeginPlay()
 	// 랜더가 이때 들어간간다.
 
 	Renderer->CreateAnimation("Attack0", "krisb_act", 0.1f);
+	Renderer->CreateAnimation("Move_Down", "kris_down", 0.1f);
+	Renderer->CreateAnimation("Move_Right", "kris_right", 0.1f);
+	Renderer->CreateAnimation("Move_Left", "kris_Left", 0.1f);
+	Renderer->CreateAnimation("Hug", "kris_hug", 0.1f);
+
 	Renderer->ChangeAnimation("Attack0");
 	Renderer->SetOrder(ERenderOrder::Player);
 	Renderer->SetAutoSize(2.0f, true);
