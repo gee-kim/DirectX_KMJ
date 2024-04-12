@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{A15297EE-0642-4AB2-BEE9-9492908F8C2E}</ProjectGuid>
+    <ProjectGuid>{48ea064c-43d1-448e-a47d-9534db00d4f7}</ProjectGuid>
     <RootNamespace>EngineShader</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -134,7 +134,6 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
-    <FxCompile Include="ImageShaderTest.fx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="EngineShaderBase.hlsli" />
