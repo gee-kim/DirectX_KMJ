@@ -1,6 +1,6 @@
 #include "PreCompile.h"
 #include "ContentsConstValue.h"
 
-static const float TileSize = 720.0f;
-static std::shared_ptr<UEngineTexture> MapTex;
-static float4 MapTexScale;
+const float UContentsConstValue::TileSize = 720.0f;
+std::shared_ptr<UEngineTexture> UContentsConstValue::MapTex;
+float4 UContentsConstValue::MapTexScale;
