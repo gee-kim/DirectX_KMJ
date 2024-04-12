@@ -2,7 +2,8 @@
 #include <EngineCore/Actor.h>
 
 // Ό³Έν :
-class URenderer;
+class USpriteRenderer;
+
 class APlayer : public AActor
 {
 	GENERATED_BODY(AActor)
@@ -21,7 +22,7 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	URenderer* Renderer;
-	float4 Color;
+	USpriteRenderer* Renderer = nullptr;
+	//float4 Color;
 };
 

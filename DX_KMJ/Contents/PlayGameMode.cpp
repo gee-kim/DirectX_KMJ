@@ -19,11 +19,6 @@ void APlayGameMode::BeginPlay()
 	UContentsConstValue::MapTex = UEngineTexture::FindRes("bg_torhouse_bg_ch1_0.png");
 	UContentsConstValue::MapTexScale = UContentsConstValue::MapTex->GetScale();
 
-	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
-	Camera->SetActorLocation(FVector(0.0f, 0.0f, -100.0f));
-
-	GetWorld()->SpawnActor<APlayer>("Player");
-
 	std::shared_ptr<ABackGround> Back = GetWorld()->SpawnActor<ABackGround>("PlayBackGround");
 
 	float TileSize = UContentsConstValue::TileSize;
@@ -32,6 +27,14 @@ void APlayGameMode::BeginPlay()
 
 	Back->SetActorScale3D(ImageScale);
 	Back->SetActorLocation({ ImageScale.hX(), -ImageScale.hY(), 500.0f });
+
+	std::shared_ptr<APlayer> Actor = GetWorld()->SpawnActor<APlayer>("Player");
+	Actor->SetActorLocation({ 640.0f, 0.0f, 200.0f });
+
+
+
+	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
+	Camera->SetActorLocation(FVector(ImageScale.hX(), -ImageScale.hY(), -100.0f));
 
 
 }

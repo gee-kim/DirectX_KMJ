@@ -6,6 +6,8 @@
 APlayer::APlayer()
 {
 	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	SetRoot(Renderer);
+
 	InputOn();
 
 }
@@ -19,9 +21,13 @@ void APlayer::BeginPlay()
 	Super::BeginPlay();
 	// 랜더가 이때 들어간간다.
 
-	SetActorScale3D(FVector(100.0f, 100.0f, -100.0f));
-	
-	
+	Renderer->CreateAnimation("Attack0", "krisb_act", 0.1f);
+	Renderer->ChangeAnimation("Attack0");
+	Renderer->SetOrder(ERenderOrder::Player);
+	Renderer->SetAutoSize(2.0f, true);
+	//FVector ImageScale = Renderer->GetWorldScale();
+	//Renderer->SetScale(FVector(63.0f, 44.0f, 100.0f));
+	int a = 0;
 }
 
 void APlayer::Tick(float _DeltaTime)

@@ -2,6 +2,7 @@
 #include <EngineCore/Actor.h>
 
 class USpriteRenderer;
+
 class ABackGround : public AActor
 {
 	GENERATED_BODY(AActor)
@@ -20,7 +21,7 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	USpriteRenderer* Renderer;
-	float4 Color;
+	USpriteRenderer* Renderer = nullptr;
+	//float4 Color;
 };
 

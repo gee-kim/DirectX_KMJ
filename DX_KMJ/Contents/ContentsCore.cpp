@@ -26,6 +26,13 @@ void UContentsCore::Initialize()
 			UEngineSprite::Load(File.GetFullPath());
 		}
 	
+		std::vector<UEngineDirectory> Directories = Dir.GetAllDirectory();
+		for (size_t i = 0; i < Directories.size(); i++)
+		{
+			std::string Name = Directories[i].GetFolderName();
+			UEngineSprite::LoadFolder(Directories[i].GetFullPath());
+		}
+
 	}
 
 

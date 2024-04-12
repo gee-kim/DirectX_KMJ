@@ -8,7 +8,8 @@
 ABackGround::ABackGround()
 {
 	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
-	InputOn();
+	SetRoot(Renderer);
+	//InputOn();
 }
 
 ABackGround::~ABackGround()
