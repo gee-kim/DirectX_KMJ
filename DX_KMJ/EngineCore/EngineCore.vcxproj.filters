@@ -231,6 +231,9 @@
     <ClCompile Include="TileRenderer.cpp">
       <Filter>Object\Component\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="RenderUnit.cpp">
+      <Filter>Object\Component\Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineCore.h">
@@ -387,6 +390,9 @@
       <Filter>Debug</Filter>
     </ClInclude>
     <ClInclude Include="TileRenderer.h">
+      <Filter>Object\Component\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderUnit.h">
       <Filter>Object\Component\Rendering</Filter>
     </ClInclude>
   </ItemGroup>

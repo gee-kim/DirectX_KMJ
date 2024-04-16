@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <FxCompile Include="ColorShader.fx" />
+    <FxCompile Include="DebugShader.fx" />
     <FxCompile Include="ImageShader.fx" />
   </ItemGroup>
   <ItemGroup>

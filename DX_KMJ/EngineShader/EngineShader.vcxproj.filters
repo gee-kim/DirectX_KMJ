@@ -7,6 +7,9 @@
     <Filter Include="Header">
       <UniqueIdentifier>{b6a061ec-7712-41d8-bb9f-c768254cc6d8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{fd2caa87-92ee-4977-867b-a78c21b8fd91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="ColorShader.fx">
@@ -14,6 +17,9 @@
     </FxCompile>
     <FxCompile Include="ImageShader.fx">
       <Filter>2D</Filter>
+    </FxCompile>
+    <FxCompile Include="DebugShader.fx">
+      <Filter>Debug</Filter>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
