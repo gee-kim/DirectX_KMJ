@@ -23,6 +23,7 @@ protected:
 
 private:
 	USpriteRenderer* Renderer = nullptr;
-	//float4 Color;
+
+	float Speed = 100.0f;
 };
 
