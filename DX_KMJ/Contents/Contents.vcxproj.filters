@@ -7,14 +7,20 @@
     <Filter Include="Core">
       <UniqueIdentifier>{75ecd985-6b4d-4170-a4b6-ef8b425a5a70}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Level">
-      <UniqueIdentifier>{89e33a8a-1ba7-4847-8638-b9ca86b20cb0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Level\Actor">
-      <UniqueIdentifier>{94cd211b-c9f9-466d-a03a-8dcebac80ab1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Option">
       <UniqueIdentifier>{58a349c4-b62c-4fe7-951f-fdf69335b42f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpeningLevel">
+      <UniqueIdentifier>{89e33a8a-1ba7-4847-8638-b9ca86b20cb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpeningLevel\Actor">
+      <UniqueIdentifier>{94cd211b-c9f9-466d-a03a-8dcebac80ab1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayLevel0">
+      <UniqueIdentifier>{d259c4db-3709-4222-ab04-657852622125}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayLevel0\Actor">
+      <UniqueIdentifier>{e690c634-157f-4525-993c-4dd92324144f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -25,19 +31,25 @@
       <Filter>PreCompile</Filter>
     </ClInclude>
     <ClInclude Include="PlayGameMode.h">
-      <Filter>Level</Filter>
+      <Filter>OpeningLevel</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Level\Actor</Filter>
+      <Filter>OpeningLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="ContentsEnum.h">
       <Filter>Option</Filter>
     </ClInclude>
     <ClInclude Include="BackGround.h">
-      <Filter>Level\Actor</Filter>
+      <Filter>OpeningLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="ContentsConstValue.h">
       <Filter>Option</Filter>
+    </ClInclude>
+    <ClInclude Include="DarkGameMode.h">
+      <Filter>PlayLevel0</Filter>
+    </ClInclude>
+    <ClInclude Include="DarkMap.h">
+      <Filter>PlayLevel0\Actor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -48,16 +60,22 @@
       <Filter>PreCompile</Filter>
     </ClCompile>
     <ClCompile Include="PlayGameMode.cpp">
-      <Filter>Level</Filter>
+      <Filter>OpeningLevel</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Level\Actor</Filter>
+      <Filter>OpeningLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
-      <Filter>Level\Actor</Filter>
+      <Filter>OpeningLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="ContentsConstValue.cpp">
       <Filter>Option</Filter>
+    </ClCompile>
+    <ClCompile Include="DarkGameMode.cpp">
+      <Filter>PlayLevel0</Filter>
+    </ClCompile>
+    <ClCompile Include="DarkMap.cpp">
+      <Filter>PlayLevel0\Actor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
