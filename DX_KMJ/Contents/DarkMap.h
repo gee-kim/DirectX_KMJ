@@ -5,6 +5,8 @@ class USpriteRenderer;
 
 class ADarkMap : public AActor
 {
+	GENERATED_BODY(AActor)
+
 public : 
 	ADarkMap();
 	~ADarkMap();
@@ -19,5 +21,7 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
+	USpriteRenderer* Renderer = nullptr;
+
 };
 

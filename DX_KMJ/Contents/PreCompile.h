@@ -8,5 +8,9 @@
 #include <EngineCore/EngineShaderResources.h>
 #include <EngineCore/EngineCore.h>
 
-#include <Contents/ContentsConstValue.h>
-#include <Contents/ContentsEnum.h>
+#include <EngineCore/SpriteRenderer.h>
+#include <EngineCore/EngineDebugMsgWindow.h>
+#include <EngineCore/EngineDebug3D.h>
+
+#include "ContentsEnum.h"
+#include "ContentsConstValue.h"

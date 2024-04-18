@@ -22,6 +22,12 @@
     <Filter Include="PlayLevel0\Actor">
       <UniqueIdentifier>{e690c634-157f-4525-993c-4dd92324144f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{1e4f2363-015f-434d-9bce-a053f6d4fd90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global">
+      <UniqueIdentifier>{96d10c02-9765-4cb8-9bbf-12726aaa6a87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContentsCore.h">

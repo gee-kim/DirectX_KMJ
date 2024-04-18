@@ -1,6 +1,7 @@
 #include "PreCompile.h"
 #include "ContentsCore.h"
 #include "PlayGameMode.h"
+#include "DarkGameMode.h"
 #include <EngineCore/EngineSprite.h>
 
 UContentsCore::UContentsCore()
@@ -37,7 +38,8 @@ void UContentsCore::Initialize()
 
 
 	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
-	GEngine->ChangeLevel("PlayLevel");
+	GEngine->CreateLevel<ADarkGameMode>("DarkLevel");
+	GEngine->ChangeLevel("DarkLevel");
 
 	//UEngineDirectory Dir;
 	//Dir.MoveToSearchChild("Resources");
