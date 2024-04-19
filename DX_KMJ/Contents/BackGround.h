@@ -20,8 +20,10 @@ protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
-private:
 	USpriteRenderer* Renderer = nullptr;
-	//float4 Color;
+	USpriteRenderer* Back_Renderer = nullptr;
+
+private:
+	
 };
 

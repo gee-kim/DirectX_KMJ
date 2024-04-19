@@ -159,6 +159,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DarkMap_Col.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Opening_BackGround.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="ContentsConstValue.h">
       <SubType>
@@ -188,6 +196,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DarkMap_Col.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Opening_BackGround.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="ContentsConstValue.cpp">
       <SubType>
@@ -202,6 +218,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Player.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Player_State.cpp">
       <SubType>
       </SubType>
     </ClCompile>

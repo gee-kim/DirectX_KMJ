@@ -2,6 +2,7 @@
 
 enum class ERenderOrder
 {
+	ColBack,
 	Back,
 	Player,
 };

@@ -1,9 +1,10 @@
 #pragma once
 #include <EngineCore/Actor.h>
+#include "BackGround.h"
 
 class USpriteRenderer;
 
-class ADarkMap : public AActor
+class ADarkMap : public ABackGround
 {
 	GENERATED_BODY(AActor)
 
@@ -21,7 +22,6 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	USpriteRenderer* Renderer = nullptr;
 
 };
 

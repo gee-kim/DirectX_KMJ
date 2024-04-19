@@ -1,11 +1,10 @@
 #include "PreCompile.h"
 #include "DarkMap.h"
+#include "BackGround.h"
 
 ADarkMap::ADarkMap()
 {
-	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
-	SetRoot(Renderer);
-	InputOn();
+
 }
 
 ADarkMap::~ADarkMap()
@@ -16,7 +15,7 @@ void ADarkMap::BeginPlay()
 {
 	Super::BeginPlay();
 
-	Renderer->SetSprite("deltarune_map0.png");
+	Renderer->SetSprite("Dark_Map.png");
 
 	Renderer->SetAutoSize(1.0f, true);
 

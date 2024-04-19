@@ -1,8 +1,8 @@
 #include "PreCompile.h"
 #include "PlayGameMode.h"
-#include "Player.h"
-#include "BackGround.h"
+#include "Opening_BackGround.h"
 #include <EngineCore/Camera.h>
+#include "Player.h"
 
 APlayGameMode::APlayGameMode()
 {
@@ -19,7 +19,7 @@ void APlayGameMode::BeginPlay()
 	UContentsConstValue::MapTex = UEngineTexture::FindRes("bg_torhouse_bg_ch1_0.png");
 	UContentsConstValue::MapTexScale = UContentsConstValue::MapTex->GetScale();
 
-	std::shared_ptr<ABackGround> Back = GetWorld()->SpawnActor<ABackGround>("PlayBackGround");
+	std::shared_ptr<AOpening_BackGround> Back = GetWorld()->SpawnActor<AOpening_BackGround>("BackGround");
 
 	float TileSize = UContentsConstValue::TileSize;
 	float4 TeXScale = UContentsConstValue::MapTexScale;
