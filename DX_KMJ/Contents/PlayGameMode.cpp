@@ -29,12 +29,13 @@ void APlayGameMode::BeginPlay()
 	Back->SetActorLocation({ ImageScale.hX(), -ImageScale.hY(), 500.0f });
 
 	std::shared_ptr<APlayer> Actor = GetWorld()->SpawnActor<APlayer>("Player");
-	Actor->SetActorLocation({ 0.0f, 0.0f, 200.0f });
+	Actor->SetActorLocation( FVector(640.0f, -260.0f, 200.0f) );
 
-
+	
 
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
-	Camera->SetActorLocation(FVector(ImageScale.hX(), -ImageScale.hY(), -100.0f));
+	Camera->SetActorLocation(FVector(640.0f, -260.0f, -200.0f));
+	//Camera->SetActorLocation(FVector(ImageScale.hX(), -ImageScale.hY(), -100.0f));
 
 
 }
@@ -43,5 +44,10 @@ void APlayGameMode::BeginPlay()
 void APlayGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
+
+	if (true == UEngineInput::IsDown(VK_SPACE))
+	{
+		GEngine->ChangeLevel("DarkLevel");
+	}
 
 }

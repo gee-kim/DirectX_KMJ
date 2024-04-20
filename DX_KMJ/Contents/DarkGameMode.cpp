@@ -21,7 +21,7 @@ void ADarkGameMode::BeginPlay()
 	
 	// CameraSet
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
-	Camera->SetActorLocation(FVector(640.0f, -360.0f, -100.0f));
+	Camera->SetActorLocation(FVector(640.0f, -360.0f, -200.0f));
 
 	// DarkMap 
 	std::shared_ptr<ADarkMap> DarkMap = GetWorld()->SpawnActor<ADarkMap>("DarkMap");
