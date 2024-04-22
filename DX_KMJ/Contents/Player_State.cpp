@@ -71,7 +71,7 @@ void APlayer::DirAnimationChange(std::string _AnimationName)
 	Renderer->ChangeAnimation(_AnimationName + Dir);
 }
 
-void APlayer::ColorCheck(float _DeltaTime, float4 _NextPos)
+void APlayer::ColorCheck(float4 _NextPos)
 {
 
 	float4 PlayerNextPos = GetActorLocation() + _NextPos;
@@ -113,7 +113,7 @@ void APlayer::Move(float _DeltaTime)
 
 	if (true == UEngineInput::IsPress('A'))
 	{
-		ColorCheck(_DeltaTime, FVector::Left * _DeltaTime * Speed);
+		ColorCheck(FVector::Left * _DeltaTime * Speed);
 
 		if (Color != Color8Bit::Black)
 		{
@@ -123,7 +123,7 @@ void APlayer::Move(float _DeltaTime)
 
 	if (true == UEngineInput::IsPress('D'))
 	{
-		ColorCheck(_DeltaTime, FVector::Right * _DeltaTime * Speed);
+		ColorCheck(FVector::Right * _DeltaTime * Speed);
 
 		if (Color != Color8Bit::Black)
 		{
@@ -135,7 +135,7 @@ void APlayer::Move(float _DeltaTime)
 	if (true == UEngineInput::IsPress('W'))
 	{
 
-		ColorCheck(_DeltaTime, FVector::Up * _DeltaTime * Speed);
+		ColorCheck(FVector::Up * _DeltaTime * Speed);
 
 		if (Color != Color8Bit::Black)
 		{
@@ -146,7 +146,7 @@ void APlayer::Move(float _DeltaTime)
 	if (true == UEngineInput::IsPress('S'))
 	{
 
-		ColorCheck(_DeltaTime, FVector::Down * _DeltaTime * Speed);
+		ColorCheck(FVector::Down * _DeltaTime * Speed);
 
 		if (Color != Color8Bit::Black)
 		{

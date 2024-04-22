@@ -42,7 +42,7 @@ private:
 	void Attak(float _DeltaTime);
 
 	void DebugMessageFunction();
-	void ColorCheck(float _DeltaTime, float4 _NextPos);
+	void ColorCheck(float4 _NextPos);
 
 };
 
