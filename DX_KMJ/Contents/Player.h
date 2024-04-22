@@ -26,23 +26,23 @@ public:
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
+	void DirAnimationChange(std::string _AnimationName);
 
 private:
+	std::string Dir = "_Down";
 	USpriteRenderer* Renderer = nullptr;
 	//UCollision* Collision;
-
+	Color8Bit Color;
 	float Speed = 100.0f;
 
 	void StateInit();
 
 	void Idle(float _DeltaTime);
-
-	void MoveStart();
 	void Move(float _DeltaTime);
-
-	void AttakStart();
 	void Attak(float _DeltaTime);
 
+	void DebugMessageFunction();
+	void ColorCheck(float _DeltaTime, float4 _NextPos);
 
 };
 

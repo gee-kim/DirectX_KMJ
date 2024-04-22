@@ -21,18 +21,12 @@ void APlayer::BeginPlay()
 	Super::BeginPlay();
 	// 랜더가 이때 들어간간다.
 
-	Renderer->CreateAnimation("Attack0", "krisb_act", 0.1f);
-	Renderer->CreateAnimation("Move_Down", "kris_down", 0.1f);
-	Renderer->CreateAnimation("Move_Right", "kris_right", 0.1f);
-	Renderer->CreateAnimation("Move_Left", "kris_Left", 0.1f);
-	Renderer->CreateAnimation("Hug", "kris_hug", 0.1f);
-
-	Renderer->ChangeAnimation("Attack0");
+	// Renderer->ChangeAnimation("Kris_Idle_Down");
 	Renderer->SetOrder(ERenderOrder::Player);
 	Renderer->SetAutoSize(2.0f, true);
-	//FVector ImageScale = Renderer->GetWorldScale();
-	//Renderer->SetScale(FVector(63.0f, 44.0f, 100.0f));
-	int a = 0;
+	Renderer->SetPivot(EPivot::BOT);
+
+	StateInit();
 }
 
 void APlayer::Tick(float _DeltaTime)
@@ -40,5 +34,25 @@ void APlayer::Tick(float _DeltaTime)
 	// 위에 뭔가를 쳐야할때도 있다.
 	Super::Tick(_DeltaTime);
 
-	
+	State.Update(_DeltaTime);
+
+	DebugMessageFunction();
+}
+
+void APlayer::DebugMessageFunction()
+{
+	{
+		std::string Msg = std::format("PlayerPos : {}\n", GetActorLocation().ToString());
+		UEngineDebugMsgWindow::PushMsg(Msg);
+	}
+
+	{
+		std::string Msg = std::format("MousePos : {}\n", GEngine->EngineWindow.GetScreenMousePos().ToString());
+		UEngineDebugMsgWindow::PushMsg(Msg);
+	}
+
+	{
+		std::string Msg = std::format("CameraPos : {}\n", GetWorld()->GetMainCamera()->GetActorLocation().ToString());
+		UEngineDebugMsgWindow::PushMsg(Msg);
+	}
 }
