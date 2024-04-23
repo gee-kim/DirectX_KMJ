@@ -29,17 +29,30 @@ protected:
 	void DirAnimationChange(std::string _AnimationName);
 
 private:
-	std::string Dir = "_Down";
+	std::string Dir = "_Right";
 	USpriteRenderer* Renderer = nullptr;
 	//UCollision* Collision;
-	Color8Bit Color;
-	float Speed = 100.0f;
+	Color8Bit ColColor;
+	Color8Bit GravColor;
+	float4 GravityValue;
+
+	float Speed = 200.0f;
+	float FreeMoveSpeed = 1000.0f;
+	float DropSpeed = 500.0f;
+
+	float TimeCount = 5.0f;
 
 	void StateInit();
 
 	void Idle(float _DeltaTime);
 	void Move(float _DeltaTime);
 	void Attak(float _DeltaTime);
+	void Fallen(float _DeltaTime);
+	void Gravity(float _DeltaTime);
+	void FreeMove(float _DeltaTime);
+
+
+
 
 	void DebugMessageFunction();
 	void ColorCheck(float4 _NextPos);

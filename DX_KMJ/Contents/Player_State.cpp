@@ -17,7 +17,9 @@ void APlayer::StateInit()
 	Renderer->CreateAnimation("Kris_Idle_Up", "kris_dark_up", 0.0f, false, 0, 0);
 
 	Renderer->CreateAnimation("Hug", "kris_hug", 0.1f);
-
+	Renderer->CreateAnimation("Kris_Fallen", "kris_fallen", 1.5f, false, 0, 2);
+	Renderer->CreateAnimation("Kris_Drop", "kris_drop", 0.0f, false, 0, 0);
+	
 
 
 
@@ -25,6 +27,10 @@ void APlayer::StateInit()
 	State.CreateState("Player_Idle");
 	State.CreateState("Player_Move");
 	State.CreateState("Player_Attack");
+	State.CreateState("Player_Fallen");
+
+	State.CreateState("Player_FreeMove");
+	State.CreateState("Player_Gravity");
 
 	InputOn();
 
@@ -45,8 +51,29 @@ void APlayer::StateInit()
 			DirAnimationChange("Kris_Move");
 		}
 	);
+	
+	State.SetUpdateFunction("Player_Fallen", std::bind(&APlayer::Fallen, this, std::placeholders::_1));
+	State.SetStartFunction("Player_Fallen", [=]()
+		{
+			Renderer->ChangeAnimation("Kris_Fallen"); 
+		}
+	);
 
-	State.ChangeState("Player_Idle");
+	State.SetUpdateFunction("Player_FreeMove", std::bind(&APlayer::FreeMove, this, std::placeholders::_1));
+	State.SetStartFunction("Player_FreeMove", [=]()
+		{
+			DirAnimationChange("Kris_Idle");
+		}
+	);
+
+	State.SetUpdateFunction("Player_Gravity", std::bind(&APlayer::Gravity, this, std::placeholders::_1));
+	State.SetStartFunction("Player_Gravity", [=]()
+		{
+			Renderer->ChangeAnimation("Kris_Drop");
+		}
+	);
+	
+	State.ChangeState("Player_Fallen");
 }
 
 void APlayer::DirAnimationChange(std::string _AnimationName)
@@ -89,17 +116,32 @@ void APlayer::ColorCheck(float4 _NextPos)
 
 	Pos.Y = -Pos.Y;
 
-	Color = Tex->GetColor(Pos, Color8Bit::Black);
+	ColColor = Tex->GetColor(Pos, Color8Bit::Black);
+	GravColor = Tex->GetColor(Pos, Color8Bit::Magenta);
 
 }
 
 void APlayer::Idle(float _DeltaTime)
 {
+
+	if (true == UEngineInput::IsDown('1'))
+	{
+		State.ChangeState("Player_FreeMove");
+		return;
+	}
+
+	//if (true == UEngineInput::IsDown('2'))
+	//{
+	//	State.ChangeState("CameraFreeMove");
+	//	return;
+	//}
+
 	if (true == IsPress('A') || true == IsPress('D') || true == IsPress('W') || true == IsPress('S'))
 	{
 		State.ChangeState("Player_Move");
 		return;
 	}
+
 }
 
 void APlayer::Move(float _DeltaTime)
@@ -115,9 +157,14 @@ void APlayer::Move(float _DeltaTime)
 	{
 		ColorCheck(FVector::Left * _DeltaTime * Speed);
 
-		if (Color != Color8Bit::Black)
+		if (ColColor != Color8Bit::Black)
 		{
 			AddActorLocation(FVector::Left * _DeltaTime * Speed);
+		}
+
+		if (GravColor == Color8Bit::Magenta)
+		{
+			State.ChangeState("Player_Gravity");
 		}
 	}
 
@@ -125,10 +172,15 @@ void APlayer::Move(float _DeltaTime)
 	{
 		ColorCheck(FVector::Right * _DeltaTime * Speed);
 
-		if (Color != Color8Bit::Black)
+		if (ColColor != Color8Bit::Black)
 		{
-		AddActorLocation(FVector::Right * _DeltaTime * Speed);
+			AddActorLocation(FVector::Right * _DeltaTime * Speed);
 
+		}
+
+		if (GravColor == Color8Bit::Magenta)
+		{
+			State.ChangeState("Player_Gravity");
 		}
 	}
 
@@ -137,9 +189,13 @@ void APlayer::Move(float _DeltaTime)
 
 		ColorCheck(FVector::Up * _DeltaTime * Speed);
 
-		if (Color != Color8Bit::Black)
+		if (ColColor != Color8Bit::Black)
 		{
 			AddActorLocation(FVector::Up * _DeltaTime * Speed);
+		}
+		if (GravColor == Color8Bit::Magenta)
+		{
+			State.ChangeState("Player_Gravity");
 		}
 	}
 
@@ -148,9 +204,13 @@ void APlayer::Move(float _DeltaTime)
 
 		ColorCheck(FVector::Down * _DeltaTime * Speed);
 
-		if (Color != Color8Bit::Black)
+		if (ColColor != Color8Bit::Black)
 		{
 			AddActorLocation(FVector::Down * _DeltaTime * Speed);
+		}
+		if (GravColor == Color8Bit::Magenta)
+		{
+			State.ChangeState("Player_Gravity");
 		}
 	}
 
@@ -163,11 +223,67 @@ void APlayer::Move(float _DeltaTime)
 
 }
 
+void APlayer::FreeMove(float _DeltaTime)
+{
+	GetWorld()->GetMainCamera()->SetActorLocation(GetActorLocation() + float4{ 0.0f, 0.0f, -100.0f });
+
+	if (UEngineInput::IsPress(VK_LEFT))
+	{
+		AddActorLocation(FVector::Left * _DeltaTime * FreeMoveSpeed);
+	}
+
+	if (UEngineInput::IsPress(VK_RIGHT))
+	{
+		AddActorLocation(FVector::Right * _DeltaTime * FreeMoveSpeed);
+	}
+
+	if (UEngineInput::IsPress(VK_UP))
+	{
+		AddActorLocation(FVector::Up* _DeltaTime* FreeMoveSpeed);
+	}
+
+	if (UEngineInput::IsPress(VK_DOWN))
+	{
+		AddActorLocation(FVector::Down * _DeltaTime * FreeMoveSpeed);
+	}
+
+	if (UEngineInput::IsDown('2'))
+	{
+		State.ChangeState("Player_Idle");
+	}
+}
+
+void APlayer::Fallen(float _DeltaTime)
+{
+	//fallen 상태에서는 키입력을 받지 않는다.
+	InputOff();
+
+	TimeCount -=_DeltaTime;
+	if (0.0 >= TimeCount)
+	{
+		State.ChangeState("Player_Idle");
+		InputOn();
+	}
+
+}
+
+void APlayer::Gravity(float _DeltaTime)
+{
+	ColorCheck(FVector::Down * _DeltaTime * Speed);
+
+	AddActorLocation(FVector::Down * _DeltaTime* DropSpeed);
+
+	GetWorld()->GetMainCamera()->SetActorLocation(GetActorLocation() + float4{ 0.0f, 0.0f, -100.0f });
+
+	if (GravColor != Color8Bit::Magenta)
+	{
+		State.ChangeState("Player_Idle");
+	}
+
+}
 
 void APlayer::Attak(float _DeltaTime)
 {
 
 }
-
-
 

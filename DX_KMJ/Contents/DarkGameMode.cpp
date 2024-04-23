@@ -34,7 +34,8 @@ void ADarkGameMode::BeginPlay()
 
 	// PlayerSet
 	std::shared_ptr<APlayer> Player = GetWorld()->SpawnActor<APlayer>("Player");
-	Player->SetActorLocation(FVector(842.0f, -480.0f, 0.0f));
+	//Player->SetActorLocation(FVector(842.0f, -480.0f, 0.0f));
+	Player->SetActorLocation(FVector(6042.0f, -780.0f, 0.0f));
 
 	// CameraSet
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
@@ -46,5 +47,6 @@ void ADarkGameMode::BeginPlay()
 void ADarkGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
-
+	
+	
 }

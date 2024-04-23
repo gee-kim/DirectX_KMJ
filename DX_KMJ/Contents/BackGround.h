@@ -16,12 +16,15 @@ public :
 	ABackGround& operator =(const ABackGround& _Other)	 = delete;
 	ABackGround& operator =(ABackGround& _Other) noexcept	 = delete;
 
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 	USpriteRenderer* Renderer = nullptr;
 	USpriteRenderer* Back_Renderer = nullptr;
+
+	void SwitchDebug();
 
 private:
 	

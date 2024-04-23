@@ -15,19 +15,22 @@ void ADarkMap::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//Renderer->SetSprite("Dark_Map.png");
-
 	Renderer->SetSprite("Dark_Map.png");
-	//Renderer->SetSprite("dark_colmap0.png");
 
-	Renderer->SetAutoSize(1.0f, true);
+	// Renderer->SetAutoSize(1.0f, true);
+
+	Back_Renderer->SetSprite("dark_colmap0.png");
 
 	Renderer->SetOrder(ERenderOrder::Back);
-
 }
 
 void ADarkMap::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
+
+	if (UEngineInput::IsDown('O'))
+	{
+		SwitchDebug();
+	}
 
 }

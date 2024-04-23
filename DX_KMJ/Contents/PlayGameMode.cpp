@@ -32,12 +32,11 @@ void APlayGameMode::BeginPlay()
 	Actor->SetActorLocation( FVector(640.0f, -260.0f, 200.0f) );
 
 	
-
 	std::shared_ptr<UCamera> Camera = GetWorld()->GetMainCamera();
 	Camera->SetActorLocation(FVector(640.0f, -260.0f, -200.0f));
 	//Camera->SetActorLocation(FVector(ImageScale.hX(), -ImageScale.hY(), -100.0f));
 
-
+	
 }
 
 
