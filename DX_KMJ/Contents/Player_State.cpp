@@ -37,6 +37,7 @@ void APlayer::StateInit()
 
 	USpriteRenderer* StateRenderer = Renderer;
 
+
 	State.SetUpdateFunction("Player_Idle", std::bind(&APlayer::Idle, this, std::placeholders::_1));
 	State.SetStartFunction("Player_Idle", [=]()
 		{
@@ -73,7 +74,7 @@ void APlayer::StateInit()
 		}
 	);
 	
-	State.ChangeState("Player_Fallen");
+	State.ChangeState("Player_Idle");
 }
 
 void APlayer::DirAnimationChange(std::string _AnimationName)
@@ -144,7 +145,7 @@ void APlayer::Idle(float _DeltaTime)
 
 }
 
-void APlayer::Move(float _DeltaTime)
+void APlayer::Move(/*const APlayer* this,*/ float _DeltaTime)
 {
 	GetWorld()->GetMainCamera()->SetActorLocation(GetActorLocation() + float4{ 0.0f, 0.0f, -100.0f });
 

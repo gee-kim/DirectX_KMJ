@@ -15,13 +15,13 @@ void AWobbly_Monster::BeginPlay()
 	Super::BeginPlay();
 
 	Renderer->CreateAnimation("Wobbly_Idle", "wobblything", 0.5f);
+	Renderer->CreateAnimation("Wobbly_Drak", "wobblything_evil", 0.5f);
 
-	Renderer->ChangeAnimation("Wobbly_Idle");
+	// Renderer->ChangeAnimation("Wobbly_Idle");
 
 	Renderer->SetOrder(ERenderOrder::Monster);
 
 	Renderer->SetAutoSize(2.0f, true);
-
 
 
 }

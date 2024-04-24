@@ -6,4 +6,6 @@ enum class ERenderOrder
 	Back,
 	Monster,
 	Player,
+	Bullet,
+
 };

@@ -63,6 +63,9 @@
     <ClInclude Include="Wobbly_Monster.h">
       <Filter>PlayLevel0\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="Wobbly_Bullet.h">
+      <Filter>PlayLevel0\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -96,6 +99,9 @@
       <Filter>Global</Filter>
     </ClCompile>
     <ClCompile Include="Wobbly_Monster.cpp">
+      <Filter>PlayLevel0\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Wobbly_Bullet.cpp">
       <Filter>PlayLevel0\Actor</Filter>
     </ClCompile>
   </ItemGroup>
