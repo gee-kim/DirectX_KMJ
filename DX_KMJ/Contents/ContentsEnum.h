@@ -4,5 +4,6 @@ enum class ERenderOrder
 {
 	ColBack,
 	Back,
+	Monster,
 	Player,
 };
