@@ -15,10 +15,11 @@ APlayer::APlayer()
 
 	Collision = CreateDefaultSubObject<UCollision>("Collision");
 	Collision->SetupAttachment(Root);
-	Collision->SetScale(FVector(100.0f, 100.0f, 100.0f));
+	Collision->SetScale(FVector(30.0f, 80.0f, 10.0f));
+	Collision->AddPosition(FVector(0.0f, 40.0f, 0.0f));
 	Collision->SetCollisionGroup(ECollisionOrder::Player);
-	Collision->SetCollisionType(ECollisionType::CirCle);
-
+	Collision->SetCollisionType(ECollisionType::Rect);
+	
 
 	InputOn();
 
@@ -37,6 +38,7 @@ void APlayer::BeginPlay()
 	Renderer->SetOrder(ERenderOrder::Player);
 	Renderer->SetAutoSize(2.0f, true);
 	Renderer->SetPivot(EPivot::BOT);
+
 
 	HeartRenderer->SetOrder(ERenderOrder::Heart);
 	HeartRenderer->SetAutoSize(1.0f, true);

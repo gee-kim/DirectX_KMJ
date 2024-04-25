@@ -11,18 +11,18 @@ AWobbly_Bullet::AWobbly_Bullet()
 
 	BulletCollision = CreateDefaultSubObject<UCollision>("Collision");
 	BulletCollision->SetupAttachment(Root);
-	BulletCollision->SetScale(FVector(10.0f, 10.0f, 10.0f));
+	BulletCollision->SetScale(FVector(15.0f, 15.0f, 15.0f));
 	// 콜리전은 무조건 오더를 지정해줘야 한다.
 	BulletCollision->SetCollisionGroup(ECollisionOrder::Bullet);
-	BulletCollision->SetCollisionType(ECollisionType::CirCle);
+	BulletCollision->SetCollisionType(ECollisionType::RotRect);
 
 	CheckCollision = CreateDefaultSubObject<UCollision>("Collision");
 	CheckCollision->SetupAttachment(Root);
-	CheckCollision->SetScale(FVector(50.0f, 200.0f, 50.0f));
-	CheckCollision->AddPosition(FVector(0.0f, 200.0f, 0.0f));
+	CheckCollision->SetScale(FVector(50.0f, 100.0f, 50.0f));
+	CheckCollision->AddPosition(FVector(0.0f, -100.0f, 0.0f));
 	// 콜리전은 무조건 오더를 지정해줘야 한다.
 	CheckCollision->SetCollisionGroup(ECollisionOrder::Back);
-	CheckCollision->SetCollisionType(ECollisionType::Rect);
+	CheckCollision->SetCollisionType(ECollisionType::RotRect);
 
 	SetRoot(Root);
 
