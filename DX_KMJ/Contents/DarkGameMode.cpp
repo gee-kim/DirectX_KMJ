@@ -3,6 +3,7 @@
 #include "DarkMap.h"
 #include "Player.h"
 #include "Wobbly_Monster.h"
+#include "Wobbly_Bullet.h"
 
 #include <EngineCore/Camera.h>
 
@@ -36,8 +37,8 @@ void ADarkGameMode::BeginPlay()
 	// PlayerSet
 	std::shared_ptr<APlayer> Player = GetWorld()->SpawnActor<APlayer>("Player");
 	//Player->SetActorLocation(FVector(842.0f, -480.0f, 0.0f)); // start pos 
-	//Player->SetActorLocation(FVector(6042.0f, -780.0f, 0.0f)); //gravity pos
-	Player->SetActorLocation(FVector(7544.0f, -1180.0f, 0.0f)); // monster
+	Player->SetActorLocation(FVector(6042.0f, -780.0f, 0.0f)); //gravity pos
+	//Player->SetActorLocation(FVector(7544.0f, -1180.0f, 0.0f)); // monster
 	
 
 	// CameraSet
@@ -103,6 +104,10 @@ void ADarkGameMode::BeginPlay()
 		Wobbly->ChangeAnimation("Wobbly_Drak");
 	}
 
+	//우블리 bullet 배치
+	std::shared_ptr<AWobbly_Bullet> Bullet = GetWorld()->SpawnActor<AWobbly_Bullet>("Bullet");
+	Bullet->SetActorLocation(FVector(7558.0f, -1188.0f, 0.0f));
+	
 }
 
 

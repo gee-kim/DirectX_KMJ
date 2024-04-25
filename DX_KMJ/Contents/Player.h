@@ -31,7 +31,8 @@ protected:
 private:
 	std::string Dir = "_Right";
 	USpriteRenderer* Renderer = nullptr;
-	//UCollision* Collision;
+	USpriteRenderer* HeartRenderer = nullptr;
+	UCollision* Collision = nullptr;
 	Color8Bit ColColor;
 	Color8Bit GravColor;
 	float4 GravityValue;
@@ -50,7 +51,7 @@ private:
 	void Fallen(float _DeltaTime);
 	void Gravity(float _DeltaTime);
 	void FreeMove(float _DeltaTime);
-
+	void Escape(float _DeltaTime);
 
 
 

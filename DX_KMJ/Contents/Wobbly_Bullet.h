@@ -3,6 +3,7 @@
 #include <EngineCore/Actor.h>
 
 class USpriteRenderer;
+class UCollision;
 
 class AWobbly_Bullet : public AActor
 {
@@ -16,6 +17,8 @@ public :
 	AWobbly_Bullet(AWobbly_Bullet& _Other) noexcept				 = delete;
 	AWobbly_Bullet& operator =(const AWobbly_Bullet& _Other)	 = delete;
 	AWobbly_Bullet& operator =(AWobbly_Bullet& _Other) noexcept	 = delete;
+	
+	void Setbullet();
 
 	
 protected:
@@ -24,5 +27,8 @@ protected:
 
 private:
 	USpriteRenderer* Renderer = nullptr;
+	UCollision* BulletCollision = nullptr;
+	UCollision* CheckCollision = nullptr;
+
 };
 

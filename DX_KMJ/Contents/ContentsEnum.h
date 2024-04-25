@@ -6,6 +6,16 @@ enum class ERenderOrder
 	Back,
 	Monster,
 	Player,
+	Heart,
+	Bullet,
+
+};
+
+enum class ECollisionOrder
+{
+	Back,
+	Player,
+	Monster,
 	Bullet,
 
 };
