@@ -14,15 +14,7 @@ AWobbly_Bullet::AWobbly_Bullet()
 	BulletCollision->SetScale(FVector(15.0f, 15.0f, 15.0f));
 	// 콜리전은 무조건 오더를 지정해줘야 한다.
 	BulletCollision->SetCollisionGroup(ECollisionOrder::Bullet);
-	BulletCollision->SetCollisionType(ECollisionType::RotRect);
-
-	CheckCollision = CreateDefaultSubObject<UCollision>("Collision");
-	CheckCollision->SetupAttachment(Root);
-	CheckCollision->SetScale(FVector(50.0f, 100.0f, 50.0f));
-	CheckCollision->AddPosition(FVector(0.0f, -100.0f, 0.0f));
-	// 콜리전은 무조건 오더를 지정해줘야 한다.
-	CheckCollision->SetCollisionGroup(ECollisionOrder::Back);
-	CheckCollision->SetCollisionType(ECollisionType::RotRect);
+	BulletCollision->SetCollisionType(ECollisionType::Rect);
 
 	SetRoot(Root);
 
@@ -38,15 +30,25 @@ void AWobbly_Bullet::BeginPlay()
 
 	Renderer->SetSprite("spr_wobblebullet_ch1_0.png");
 	Renderer->SetOrder(ERenderOrder::Bullet);
+
 	Renderer->SetAutoSize(2.0f, true);
 
+	Renderer->SetPosition(FVector(7558.0f, -1188.0f, 0.0f));
+
+	
 }
 
 void AWobbly_Bullet::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	//Renderer->SetActive(false);
+	AddActorLocation(FVector::Down * _DeltaTime * Speed);
 
+}
+
+void AWobbly_Bullet::StartAtt(float _DeltaTime)
+{
+	Renderer->SetActive(true);
+	BulletCollision->SetActive(true);
 
 }

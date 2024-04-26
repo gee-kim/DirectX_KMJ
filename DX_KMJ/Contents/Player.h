@@ -51,9 +51,10 @@ private:
 	void Fallen(float _DeltaTime);
 	void Gravity(float _DeltaTime);
 	void FreeMove(float _DeltaTime);
-	void Escape(float _DeltaTime);
+	void Escape_Move(float _DeltaTime);
+	void Escape_Idle(float _DeltaTime);
 
-
+	bool IsEnd = false;
 
 	void DebugMessageFunction();
 	void ColorCheck(float4 _NextPos);

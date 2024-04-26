@@ -1,8 +1,8 @@
 #pragma once
-#include "PreCompile.h"
 #include <EngineCore/Actor.h>
 
 class USpriteRenderer;
+class AWobbly_Bullet;
 
 class AWobbly_Monster :public AActor
 {
@@ -28,6 +28,10 @@ protected:
 
 private:
 	USpriteRenderer* Renderer = nullptr;
+	UCollision* CheckCollision = nullptr;
 
+	FVector Dir_Left = FVector::Down + FVector::Right;
+
+	std::vector<std::shared_ptr< AWobbly_Bullet>> Bullets;
 };
 

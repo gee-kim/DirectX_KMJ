@@ -13,7 +13,7 @@ enum class ERenderOrder
 
 enum class ECollisionOrder
 {
-	Back,
+	PosCheck,
 	Player,
 	Monster,
 	Bullet,

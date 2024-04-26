@@ -18,9 +18,8 @@ public :
 	AWobbly_Bullet& operator =(const AWobbly_Bullet& _Other)	 = delete;
 	AWobbly_Bullet& operator =(AWobbly_Bullet& _Other) noexcept	 = delete;
 	
-	void Setbullet();
+	void StartAtt(float _DeltaTime);
 
-	
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -28,7 +27,8 @@ protected:
 private:
 	USpriteRenderer* Renderer = nullptr;
 	UCollision* BulletCollision = nullptr;
-	UCollision* CheckCollision = nullptr;
+
+	float Speed = 500.0f;
 
 };
 

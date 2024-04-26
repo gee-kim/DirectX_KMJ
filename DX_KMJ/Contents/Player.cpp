@@ -41,7 +41,7 @@ void APlayer::BeginPlay()
 
 
 	HeartRenderer->SetOrder(ERenderOrder::Heart);
-	HeartRenderer->SetAutoSize(1.0f, true);
+	HeartRenderer->SetAutoSize(0.8f, true);
 	HeartRenderer->AddPosition(FVector{ 0.0f, 30.0f });
 	//하트랜더러는 공격받는게 시작되면 SetActive ture 해줘야함.
 	HeartRenderer->SetActive(false);
@@ -56,13 +56,36 @@ void APlayer::Tick(float _DeltaTime)
 
 	State.Update(_DeltaTime);
 	
-	//콜리전 체크
-	Collision->CollisionEnter(ECollisionOrder::Bullet, [=](std::shared_ptr<UCollision> _Collison)
+	//플레이어가 무브 중 PosCheck콜리전 체크
+	Collision->CollisionEnter(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision> _Collison)
 		{
-			State.ChangeState("Player_Escape");
+			//PosCheck콜리젼과 만나면 bullet이랑 랜더러가 attack상태가 되도록 만들려면
+			State.ChangeState("Player_Escape_Move");
+			HeartRenderer->SetActive(true);
+
+
 		
 		}
 	);
+
+	Collision->CollisionStay(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision> _Collison)
+		{
+
+		}
+	);
+	Collision->CollisionExit(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision> _Collison)
+		{
+			if (true == IsEnd)
+			{
+			State.ChangeState("Player_Idle");
+			HeartRenderer->SetActive(false);
+
+			}
+		}
+	);
+
+
+
 
 	DebugMessageFunction();
 }
