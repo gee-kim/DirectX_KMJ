@@ -18,7 +18,7 @@ public :
 	AWobbly_Bullet& operator =(const AWobbly_Bullet& _Other)	 = delete;
 	AWobbly_Bullet& operator =(AWobbly_Bullet& _Other) noexcept	 = delete;
 	
-	void StartAtt(float _DeltaTime);
+	void SetBulletDir(FVector _Dir);
 
 protected:
 	void BeginPlay() override;
@@ -28,7 +28,10 @@ private:
 	USpriteRenderer* Renderer = nullptr;
 	UCollision* BulletCollision = nullptr;
 
-	float Speed = 500.0f;
+
+	FVector Bullet_Dir = FVector::Down;
+
+	float Speed = 300.0f;
 
 };
 

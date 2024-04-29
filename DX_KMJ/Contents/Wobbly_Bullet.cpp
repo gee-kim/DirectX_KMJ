@@ -33,7 +33,7 @@ void AWobbly_Bullet::BeginPlay()
 
 	Renderer->SetAutoSize(2.0f, true);
 
-	Renderer->SetPosition(FVector(7558.0f, -1188.0f, 0.0f));
+	//Renderer->SetPosition(FVector(7558.0f, -1188.0f, 0.0f));
 
 	
 }
@@ -41,14 +41,11 @@ void AWobbly_Bullet::BeginPlay()
 void AWobbly_Bullet::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
-
-	AddActorLocation(FVector::Down * _DeltaTime * Speed);
-
+	
+	AddActorLocation(Bullet_Dir * Speed * _DeltaTime);
 }
 
-void AWobbly_Bullet::StartAtt(float _DeltaTime)
+void AWobbly_Bullet::SetBulletDir(FVector _Dir)
 {
-	Renderer->SetActive(true);
-	BulletCollision->SetActive(true);
-
+	Bullet_Dir = _Dir;
 }

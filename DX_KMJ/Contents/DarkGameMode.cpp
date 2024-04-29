@@ -5,6 +5,7 @@
 #include "Wobbly.h"
 #include "Wobbly_Monster.h"
 #include "Wobbly_Bullet.h"
+#include "EyePuzzle.h"
 
 #include <EngineCore/Camera.h>
 
@@ -40,7 +41,8 @@ void ADarkGameMode::BeginPlay()
 	//Player->SetActorLocation(FVector(842.0f, -480.0f, 0.0f)); // start pos 
 	//Player->SetActorLocation(FVector(3200.0f, -820.0f, 0.0f)); //wobbly pos
 	//Player->SetActorLocation(FVector(6042.0f, -780.0f, 0.0f)); //gravity pos
-	Player->SetActorLocation(FVector(7370.0f, -1428.0f, 0.0f)); // monster
+	//Player->SetActorLocation(FVector(7370.0f, -1428.0f, 0.0f)); // monster
+	Player->SetActorLocation(FVector(9111.0f, -1110.0f, 0.0f)); //eyepuzzle
 	
 
 	// CameraSet
@@ -95,6 +97,25 @@ void ADarkGameMode::BeginPlay()
 	{
 		std::shared_ptr<AWobbly_Monster> Wobbly = GetWorld()->SpawnActor<AWobbly_Monster>("Monster");
 		Wobbly->SetActorLocation(FVector(8438.0f, -1188.0f, 0.0f));
+	}
+
+	// 다크아이 배치
+
+	// 아이퍼즐 배치
+	{
+		std::shared_ptr<AEyePuzzle> EyePuzzle = GetWorld()->SpawnActor<AEyePuzzle>("Monster");
+		EyePuzzle->SetActorLocation(FVector(9125.0f, -1300.0f, 0.0f));
+		EyePuzzle->ChangeAnimation("EyePuzzle_1");
+	}
+	{
+		std::shared_ptr<AEyePuzzle> EyePuzzle = GetWorld()->SpawnActor<AEyePuzzle>("Monster");
+		EyePuzzle->SetActorLocation(FVector(9275.0f, -1300.0f, 0.0f));
+		EyePuzzle->ChangeAnimation("EyePuzzle_2");
+	}
+	{
+		std::shared_ptr<AEyePuzzle> EyePuzzle = GetWorld()->SpawnActor<AEyePuzzle>("Monster");
+		EyePuzzle->SetActorLocation(FVector(9430.0f, -1300.0f, 0.0f));
+		EyePuzzle->ChangeAnimation("EyePuzzle_3");
 	}
 
 }

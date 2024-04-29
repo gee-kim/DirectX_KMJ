@@ -30,7 +30,11 @@ private:
 	USpriteRenderer* Renderer = nullptr;
 	UCollision* CheckCollision = nullptr;
 
-	FVector Dir_Left = FVector::Down + FVector::Right;
+	float BulletSpeed = 500.0f;
+
+	FVector Bullet_Left = { -0.3f, -1.0f, 0.0f, 0.0f };
+	FVector Bullet_Right = { 0.3f, -1.0f, 0.0f, 0.0f };
+
 
 	std::vector<std::shared_ptr< AWobbly_Bullet>> Bullets;
 };

@@ -62,25 +62,30 @@ void APlayer::Tick(float _DeltaTime)
 			//PosCheck콜리젼과 만나면 bullet이랑 랜더러가 attack상태가 되도록 만들려면
 			State.ChangeState("Player_Escape_Move");
 			HeartRenderer->SetActive(true);
-
-
 		
 		}
 	);
 
 	Collision->CollisionStay(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision> _Collison)
 		{
-
+			State.ChangeState("Player_Escape_Move");
+			HeartRenderer->SetActive(true);
 		}
 	);
 	Collision->CollisionExit(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision> _Collison)
 		{
-			if (true == IsEnd)
+			
+			if (2 <= UContentsConstValue::Count)
 			{
 			State.ChangeState("Player_Idle");
 			HeartRenderer->SetActive(false);
 
+			int a = 0;
+			UContentsConstValue::Count = 0;
+			return;
+
 			}
+			++UContentsConstValue::Count;
 		}
 	);
 

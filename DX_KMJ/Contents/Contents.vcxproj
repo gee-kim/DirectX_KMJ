@@ -159,6 +159,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DarkEye.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="EyePuzzle.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="MyWidget.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Wobbly.h">
       <SubType>
       </SubType>
@@ -204,6 +216,18 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DarkEye.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="EyePuzzle.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="MyWidget.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Wobbly.cpp">
       <SubType>
       </SubType>

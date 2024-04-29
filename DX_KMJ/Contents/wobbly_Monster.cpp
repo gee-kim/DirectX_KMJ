@@ -12,7 +12,7 @@ AWobbly_Monster::AWobbly_Monster()
 
 	CheckCollision = CreateDefaultSubObject<UCollision>("Collision");
 	CheckCollision->SetupAttachment(Root);
-	CheckCollision->SetScale(FVector(200.0f, 200.0f, 50.0f));
+	CheckCollision->SetScale(FVector(300.0f, 100.0f, 50.0f));
 	CheckCollision->AddPosition(FVector(0.0f, -220.0f, 0.0f));
 	// 콜리전은 무조건 오더를 지정해줘야 한다.
 	CheckCollision->SetCollisionGroup(ECollisionOrder::Monster);
@@ -50,14 +50,20 @@ void AWobbly_Monster::Tick(float _DeltaTime)
 			Renderer->ChangeAnimation("Wobbly_Drak_Move");
 			{
 				std::shared_ptr< AWobbly_Bullet> bullet = GetWorld()->SpawnActor<AWobbly_Bullet>("AWobbly_Bullet");
-			//bullet->AddactorLocation(방향해주기)
+				bullet->SetActorLocation(GetActorLocation());
+				bullet->SetBulletDir(Bullet_Left);
 
 			}
 			{
 				std::shared_ptr< AWobbly_Bullet> bullet = GetWorld()->SpawnActor<AWobbly_Bullet>("AWobbly_Bullet");
+				bullet->SetActorLocation(GetActorLocation());
+				//bullet->SetBulletDir(FVector::Down);
+				
 			}
 			{
 				std::shared_ptr< AWobbly_Bullet> bullet = GetWorld()->SpawnActor<AWobbly_Bullet>("AWobbly_Bullet");
+				bullet->SetActorLocation(GetActorLocation());
+				bullet->SetBulletDir(Bullet_Right);
 			}
 
 			int a = 0;

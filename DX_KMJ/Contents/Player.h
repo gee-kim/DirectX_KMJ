@@ -2,6 +2,7 @@
 #include <EngineCore/Actor.h>
 #include <EngineCore/StateManager.h>
 #include <EngineBase/EngineSerializer.h>
+#include "ContentsConstValue.h"
 
 // Ό³Έν :
 class USpriteRenderer;

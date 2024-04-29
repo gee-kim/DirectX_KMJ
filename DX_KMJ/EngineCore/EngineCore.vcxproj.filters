@@ -91,6 +91,21 @@
     <Filter Include="Object\Rendering\Effect">
       <UniqueIdentifier>{d30b5cf6-803d-4f26-8203-46fd180b581e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ThirdParty\FW1FontWrapper">
+      <UniqueIdentifier>{2ec03de6-611a-4a0f-8bb4-ce38ae8abe64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\FW1FontWrapper\Release">
+      <UniqueIdentifier>{fb925058-6470-4585-99fc-cf14d6e461c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\FW1FontWrapper\Inc">
+      <UniqueIdentifier>{d81d5814-d13e-4684-aeff-adf28df062c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Font">
+      <UniqueIdentifier>{55f00901-a009-455c-a14f-aa990cf93188}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\UI\Contents">
+      <UniqueIdentifier>{0f485b7c-796d-4af3-a795-d8ecd455229c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp">
@@ -243,9 +258,6 @@
     <ClCompile Include="TileRenderer.cpp">
       <Filter>Object\Component\Rendering\Contents</Filter>
     </ClCompile>
-    <ClCompile Include="Image.cpp">
-      <Filter>Object\UI</Filter>
-    </ClCompile>
     <ClCompile Include="Widget.cpp">
       <Filter>Object\UI</Filter>
     </ClCompile>
@@ -260,6 +272,15 @@
     </ClCompile>
     <ClCompile Include="InstancingRender.cpp">
       <Filter>Object\Component\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineFont.cpp">
+      <Filter>Resources\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Object\UI\Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="TextWidget.cpp">
+      <Filter>Object\UI\Contents</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -422,9 +443,6 @@
     <ClInclude Include="TileRenderer.h">
       <Filter>Object\Component\Rendering\Contents</Filter>
     </ClInclude>
-    <ClInclude Include="Image.h">
-      <Filter>Object\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Widget.h">
       <Filter>Object\UI</Filter>
     </ClInclude>
@@ -440,9 +458,24 @@
     <ClInclude Include="InstancingRender.h">
       <Filter>Object\Component\Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="ThirdParty\FW1FontWrapper\inc\FW1FontWrapper.h">
+      <Filter>ThirdParty\FW1FontWrapper\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineFont.h">
+      <Filter>Resources\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Object\UI\Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="TextWidget.h">
+      <Filter>Object\UI\Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="ThirdParty\FW1FontWrapper\Release\FW1FontWrapper.pdb">
+      <Filter>ThirdParty\FW1FontWrapper\Release</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="ThirdParty\DirectxTex\Debug\DirectXTex.lib">
@@ -457,5 +490,13 @@
     <CopyFileToFolders Include="ThirdParty\DirectxTex\Release\DirectXTex.pdb">
       <Filter>ThirdParty\DirectXTex\Release</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\FW1FontWrapper\Release\FW1FontWrapper.dll">
+      <Filter>ThirdParty\FW1FontWrapper\Release</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ThirdParty\FW1FontWrapper\Release\FW1FontWrapper.lib">
+      <Filter>ThirdParty\FW1FontWrapper\Release</Filter>
+    </Library>
   </ItemGroup>
 </Project>

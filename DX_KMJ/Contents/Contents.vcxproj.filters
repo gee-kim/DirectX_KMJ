@@ -69,6 +69,15 @@
     <ClInclude Include="Wobbly.h">
       <Filter>PlayLevel0\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="DarkEye.h">
+      <Filter>PlayLevel0\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="EyePuzzle.h">
+      <Filter>PlayLevel0\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="MyWidget.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -109,6 +118,15 @@
     </ClCompile>
     <ClCompile Include="Wobbly.cpp">
       <Filter>PlayLevel0\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="DarkEye.cpp">
+      <Filter>PlayLevel0\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="EyePuzzle.cpp">
+      <Filter>PlayLevel0\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="MyWidget.cpp">
+      <Filter>GUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

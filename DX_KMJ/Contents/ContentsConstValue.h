@@ -7,5 +7,6 @@ public :
 	static std::shared_ptr<UEngineTexture> MapTex;
 	static float4 MapTexScale;
 
+	static int Count;
 };
 
