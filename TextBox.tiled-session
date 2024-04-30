@@ -3,8 +3,10 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "textbox11.tmx",
+    "activeFile": "deltarune_map0.tmx",
     "expandedProjectPaths": [
+        "ThirdPartyProject/DirectXTex/build",
+        "ThirdPartyProject/DirectXTex",
         "."
     ],
     "fileStates": {
@@ -20,12 +22,35 @@
         "#spr_textbox_topleft_ch1_0": {
             "scaleInDock": 1
         },
+        "bg_darkstone_1_ch1_0.tsx": {
+            "scaleInDock": 1
+        },
+        "bg_darkstone_2_ch1_0.tsx": {
+            "scaleInDock": 1
+        },
+        "bg_darktiles1_tileset_ch1.tsx": {
+            "scaleInDock": 1
+        },
+        "bg_darkwest_ch1_0.tsx": {
+            "scaleInDock": 1
+        },
+        "deltarune_map0.tmx": {
+            "scale": 0.0625,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 7304,
+                "y": 5480
+            }
+        },
+        "spr_wobblything_ch1_0.tsx": {
+            "scaleInDock": 1
+        },
         "textbox11.tmx": {
             "scale": 3,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 115.99999999999999,
-                "y": 92.33333333333331
+                "x": 115.66666666666666,
+                "y": 91.66666666666667
             }
         },
         "textbox11.tmx#bg_temptile_tileset_ch1": {
@@ -48,12 +73,15 @@
     "map.tileWidth": 1,
     "map.width": 400,
     "openFiles": [
-        "textbox11.tmx"
+        "textbox11.tmx",
+        "deltarune_map0.tmx"
     ],
     "project": "TextBox.tiled-project",
     "recentFiles": [
-        "textbox11.tmx"
+        "textbox11.tmx",
+        "deltarune_map0.tmx"
     ],
+    "resizeMap.removeObjects": true,
     "tileset.embedInMap": true,
     "tileset.tileSize": {
         "height": 44,

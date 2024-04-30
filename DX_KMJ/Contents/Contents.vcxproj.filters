@@ -78,6 +78,12 @@
     <ClInclude Include="MyWidget.h">
       <Filter>GUI</Filter>
     </ClInclude>
+    <ClInclude Include="MagicalGlass.h">
+      <Filter>PlayLevel0\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="DustPile.h">
+      <Filter>PlayLevel0\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -127,6 +133,12 @@
     </ClCompile>
     <ClCompile Include="MyWidget.cpp">
       <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="MagicalGlass.cpp">
+      <Filter>PlayLevel0\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="DustPile.cpp">
+      <Filter>PlayLevel0\Actor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -159,6 +159,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DustPile.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="MagicalGlass.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="DarkEye.h">
       <SubType>
       </SubType>
@@ -216,6 +224,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DustPile.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="MagicalGlass.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="DarkEye.cpp">
       <SubType>
       </SubType>

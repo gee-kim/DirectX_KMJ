@@ -15,7 +15,7 @@ void ADarkMap::BeginPlay()
 {
 	Super::BeginPlay();
 
-	Renderer->SetSprite("Dark_Map.png");
+	Renderer->SetSprite("Dark_Map0.png");
 
 	// Renderer->SetAutoSize(1.0f, true);
 

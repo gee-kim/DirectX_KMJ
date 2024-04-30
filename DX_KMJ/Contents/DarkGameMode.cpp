@@ -6,6 +6,9 @@
 #include "Wobbly_Monster.h"
 #include "Wobbly_Bullet.h"
 #include "EyePuzzle.h"
+#include "DarkEye.h"
+#include "MagicalGlass.h"
+#include "DustPile.h"
 
 #include <EngineCore/Camera.h>
 
@@ -42,7 +45,9 @@ void ADarkGameMode::BeginPlay()
 	//Player->SetActorLocation(FVector(3200.0f, -820.0f, 0.0f)); //wobbly pos
 	//Player->SetActorLocation(FVector(6042.0f, -780.0f, 0.0f)); //gravity pos
 	//Player->SetActorLocation(FVector(7370.0f, -1428.0f, 0.0f)); // monster
-	Player->SetActorLocation(FVector(9111.0f, -1110.0f, 0.0f)); //eyepuzzle
+	//Player->SetActorLocation(FVector(9111.0f, -1110.0f, 0.0f)); //eyepuzzle
+	Player->SetActorLocation(FVector(6520.0f, -1230.0f, 0.0f)); // monster
+
 	
 
 	// CameraSet
@@ -100,24 +105,49 @@ void ADarkGameMode::BeginPlay()
 	}
 
 	// 다크아이 배치
+	{
+		std::shared_ptr<ADarkEye> DarkEye = GetWorld()->SpawnActor<ADarkEye>("Monster");
+		DarkEye->SetActorLocation(FVector(9117.0f, -1240.0f, 0.0f));
+	}
+	{
+		std::shared_ptr<ADarkEye> DarkEye = GetWorld()->SpawnActor<ADarkEye>("Monster");
+		DarkEye->SetActorLocation(FVector(9247.0f, -1240.0f, 0.0f));
+	}
+	{
+		std::shared_ptr<ADarkEye> DarkEye = GetWorld()->SpawnActor<ADarkEye>("Monster");
+		DarkEye->SetActorLocation(FVector(9377.0f, -1240.0f, 0.0f));
+	}
 
 	// 아이퍼즐 배치
 	{
 		std::shared_ptr<AEyePuzzle> EyePuzzle = GetWorld()->SpawnActor<AEyePuzzle>("Monster");
-		EyePuzzle->SetActorLocation(FVector(9125.0f, -1300.0f, 0.0f));
+		EyePuzzle->SetActorLocation(FVector(9117.0f, -1295.0f, 0.0f));
 		EyePuzzle->ChangeAnimation("EyePuzzle_1");
 	}
 	{
 		std::shared_ptr<AEyePuzzle> EyePuzzle = GetWorld()->SpawnActor<AEyePuzzle>("Monster");
-		EyePuzzle->SetActorLocation(FVector(9275.0f, -1300.0f, 0.0f));
+		EyePuzzle->SetActorLocation(FVector(9247.5f, -1295.0f, 0.0f));
 		EyePuzzle->ChangeAnimation("EyePuzzle_2");
 	}
 	{
 		std::shared_ptr<AEyePuzzle> EyePuzzle = GetWorld()->SpawnActor<AEyePuzzle>("Monster");
-		EyePuzzle->SetActorLocation(FVector(9430.0f, -1300.0f, 0.0f));
+		EyePuzzle->SetActorLocation(FVector(9377.0f, -1295.0f, 0.0f));
 		EyePuzzle->ChangeAnimation("EyePuzzle_3");
 	}
 
+	// 매직유리 배치
+	{
+		std::shared_ptr<AMagicalGlass> MagicGlass = GetWorld()->SpawnActor<AMagicalGlass>("Monster");
+		MagicGlass->SetActorLocation(FVector(9642.5f, -1422.0f, 0.0f));
+
+	}
+
+	// 먼지구름 배치
+	{
+		std::shared_ptr<ADustPile> DustPile = GetWorld()->SpawnActor<ADustPile>("Monster");
+		DustPile->SetActorLocation(FVector(6520.0f, -1435.0f, 0.0f));
+	}
+	
 }
 
 

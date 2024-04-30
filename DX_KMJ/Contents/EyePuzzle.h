@@ -27,7 +27,8 @@ protected:
 
 private:
 	USpriteRenderer* Renderer = nullptr;
-	UCollision* Collision = nullptr;
+	USpriteRenderer* ChildRenderer = nullptr;
+	
 
 };
 

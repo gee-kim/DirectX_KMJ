@@ -8,13 +8,9 @@ AEyePuzzle::AEyePuzzle()
 	Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	Renderer->SetupAttachment(Root);
 
-	Collision = CreateDefaultSubObject<UCollision>("Collision");
-	Collision->SetupAttachment(Root);
-	Collision->SetScale(FVector(30.0f, 30.0f, 30.0f));
-	Collision->AddPosition(FVector(0.0f, -10.0f, 0.0f));
-	// 콜리전은 무조건 오더를 지정해줘야 한다.
-	Collision->SetCollisionGroup(ECollisionOrder::PosCheck);
-	Collision->SetCollisionType(ECollisionType::Rect);
+	ChildRenderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	ChildRenderer->SetupAttachment(Root);
+	ChildRenderer->AddPosition(FVector(-2.0f, -40.0f, 0.0f));
 
 	SetRoot(Root);
 
@@ -33,11 +29,15 @@ void AEyePuzzle::BeginPlay()
 	Renderer->CreateAnimation("EyePuzzle_2", "eyepuzzle", 0.0f, false, 1, 1);
 	Renderer->CreateAnimation("EyePuzzle_3", "eyepuzzle", 0.0f, false, 2, 2);
 
-	//Renderer->ChangeAnimation("EyePuzzle_1");
+	ChildRenderer->CreateAnimation("Light_Fairy", "lightfairy", 0.4f, true);
+
+	ChildRenderer->ChangeAnimation("Light_Fairy");
 
 	Renderer->SetOrder(ERenderOrder::Monster);
 	Renderer->SetAutoSize(2.0f, true);
 
+	ChildRenderer->SetOrder(ERenderOrder::Monster);
+	ChildRenderer->SetAutoSize(1.0f, true);
 	
 }
 
