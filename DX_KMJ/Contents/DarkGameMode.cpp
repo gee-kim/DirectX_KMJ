@@ -45,8 +45,8 @@ void ADarkGameMode::BeginPlay()
 	//Player->SetActorLocation(FVector(3200.0f, -820.0f, 0.0f)); //wobbly pos
 	//Player->SetActorLocation(FVector(6042.0f, -780.0f, 0.0f)); //gravity pos
 	//Player->SetActorLocation(FVector(7370.0f, -1428.0f, 0.0f)); // monster
-	//Player->SetActorLocation(FVector(9111.0f, -1110.0f, 0.0f)); //eyepuzzle
-	Player->SetActorLocation(FVector(6520.0f, -1230.0f, 0.0f)); // monster
+	Player->SetActorLocation(FVector(9111.0f, -1410.0f, 0.0f)); //eyepuzzle
+	//Player->SetActorLocation(FVector(6520.0f, -1230.0f, 0.0f)); // monster
 
 	
 
