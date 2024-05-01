@@ -21,12 +21,10 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	USpriteRenderer* Renderer = nullptr;
-	USpriteRenderer* Part0 = nullptr;
-	USpriteRenderer* Part1 = nullptr;
-	USpriteRenderer* Part2 = nullptr;
-	USpriteRenderer* Part3 = nullptr;
-	USpriteRenderer* Part4 = nullptr;
+	std::vector<USpriteRenderer*> Renderers;
+	
+	float Time = 0.0f;
+	int Count = 1;
 
 };
 
