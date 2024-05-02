@@ -41,12 +41,12 @@ void ADarkGameMode::BeginPlay()
 
 	// PlayerSet
 	std::shared_ptr<APlayer> Player = GetWorld()->SpawnActor<APlayer>("Player");
-	//Player->SetActorLocation(FVector(842.0f, -480.0f, 0.0f)); // start pos 
+	Player->SetActorLocation(FVector(842.0f, -480.0f, 0.0f)); // start pos 
 	//Player->SetActorLocation(FVector(3200.0f, -820.0f, 0.0f)); //wobbly pos
 	//Player->SetActorLocation(FVector(6042.0f, -780.0f, 0.0f)); //gravity pos
 	//Player->SetActorLocation(FVector(7370.0f, -1428.0f, 0.0f)); // monster
 	//Player->SetActorLocation(FVector(9111.0f, -1410.0f, 0.0f)); //eyepuzzle
-	Player->SetActorLocation(FVector(6520.0f, -1230.0f, 0.0f)); // monster
+	//Player->SetActorLocation(FVector(6520.0f, -1230.0f, 0.0f)); // monster
 
 	
 
@@ -109,14 +109,14 @@ void ADarkGameMode::BeginPlay()
 		std::shared_ptr<ADarkEye> DarkEye = GetWorld()->SpawnActor<ADarkEye>("Monster");
 		DarkEye->SetActorLocation(FVector(9117.0f, -1240.0f, 0.0f));
 	}
-	{
-		std::shared_ptr<ADarkEye> DarkEye = GetWorld()->SpawnActor<ADarkEye>("Monster");
-		DarkEye->SetActorLocation(FVector(9247.0f, -1240.0f, 0.0f));
-	}
-	{
-		std::shared_ptr<ADarkEye> DarkEye = GetWorld()->SpawnActor<ADarkEye>("Monster");
-		DarkEye->SetActorLocation(FVector(9377.0f, -1240.0f, 0.0f));
-	}
+	//{
+	//	std::shared_ptr<ADarkEye> DarkEye = GetWorld()->SpawnActor<ADarkEye>("Monster");
+	//	DarkEye->SetActorLocation(FVector(9247.0f, -1240.0f, 0.0f));
+	//}
+	//{
+	//	std::shared_ptr<ADarkEye> DarkEye = GetWorld()->SpawnActor<ADarkEye>("Monster");
+	//	DarkEye->SetActorLocation(FVector(9377.0f, -1240.0f, 0.0f));
+	//}
 
 	// 아이퍼즐 배치
 	{
@@ -137,8 +137,8 @@ void ADarkGameMode::BeginPlay()
 
 	// 매직유리 배치
 	{
-		std::shared_ptr<AMagicalGlass> MagicGlass = GetWorld()->SpawnActor<AMagicalGlass>("Monster");
-		MagicGlass->SetActorLocation(FVector(9642.5f, -1422.0f, 0.0f));
+		//std::shared_ptr<AMagicalGlass> MagicGlass = GetWorld()->SpawnActor<AMagicalGlass>("Monster");
+		//MagicGlass->SetActorLocation(FVector(9642.5f, -1422.0f, 0.0f));
 
 	}
 

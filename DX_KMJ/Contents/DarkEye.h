@@ -18,7 +18,7 @@ public :
 
 	void ChangeAnimation(std::string_view _AnimationName, int _Frame = 0)
 	{
-		Renderer->ChangeAnimation(_AnimationName, _Frame);
+		//Renderer->ChangeAnimation(_AnimationName, _Frame);
 	}
 
 protected:
@@ -26,8 +26,16 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	USpriteRenderer* Renderer = nullptr;
-	UCollision* Collision = nullptr;
+	USpriteRenderer* Renderer0 = nullptr;
+	USpriteRenderer* Renderer1 = nullptr;
+	USpriteRenderer* Renderer2 = nullptr;
+	USpriteRenderer* Renderer3 = nullptr;
+	USpriteRenderer* Renderer4 = nullptr;
+	USpriteRenderer* Renderer5 = nullptr;
+
+	UCollision* Collision0 = nullptr;
+	UCollision* Collision1 = nullptr;
+	UCollision* Collision2 = nullptr;
 
 };
 

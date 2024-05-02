@@ -8,5 +8,7 @@ public :
 	static float4 MapTexScale;
 
 	static int Count;
+	static bool IsMagicGlassOn;
+
 };
 

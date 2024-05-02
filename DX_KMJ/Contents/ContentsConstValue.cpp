@@ -6,3 +6,4 @@ std::shared_ptr<UEngineTexture> UContentsConstValue::MapTex;
 float4 UContentsConstValue::MapTexScale;
 
 int UContentsConstValue::Count = 0;
+bool UContentsConstValue::IsMagicGlassOn = false;

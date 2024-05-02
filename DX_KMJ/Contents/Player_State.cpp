@@ -151,6 +151,7 @@ void APlayer::ColorCheck(float4 _NextPos)
 
 	ColColor = Tex->GetColor(Pos, Color8Bit::Black);
 	GravColor = Tex->GetColor(Pos, Color8Bit::Magenta);
+	PassColor = Tex->GetColor(Pos, Color8Bit::Red);
 
 }
 
@@ -177,6 +178,30 @@ void APlayer::Idle(float _DeltaTime)
 
 }
 
+void APlayer::MoveCheck(float4 _Dir)
+{
+	ColorCheck(_Dir);
+
+	if (ColColor == Color8Bit::Black)
+	{
+		return;
+	}
+
+	if (ColColor == Color8Bit::Red && false == UContentsConstValue::IsMagicGlassOn)
+	{
+		return;
+	}
+
+	if (GravColor == Color8Bit::Magenta)
+	{
+		State.ChangeState("Player_Gravity");
+	}
+
+	AddActorLocation(_Dir);
+
+	return;
+}
+
 void APlayer::Move(/*const APlayer* this,*/ float _DeltaTime)
 {
 	GetWorld()->GetMainCamera()->SetActorLocation(GetActorLocation() + float4{ 0.0f, 0.0f, -100.0f });
@@ -188,63 +213,22 @@ void APlayer::Move(/*const APlayer* this,*/ float _DeltaTime)
 
 	if (true == UEngineInput::IsPress('A'))
 	{
-		ColorCheck(FVector::Left * _DeltaTime * Speed);
-
-		if (ColColor != Color8Bit::Black)
-		{
-			AddActorLocation(FVector::Left * _DeltaTime * Speed);
-		}
-
-		if (GravColor == Color8Bit::Magenta)
-		{
-			State.ChangeState("Player_Gravity");
-		}
+		MoveCheck(FVector::Left * _DeltaTime * Speed);
 	}
 
 	if (true == UEngineInput::IsPress('D'))
 	{
-		ColorCheck(FVector::Right * _DeltaTime * Speed);
-
-		if (ColColor != Color8Bit::Black)
-		{
-			AddActorLocation(FVector::Right * _DeltaTime * Speed);
-
-		}
-
-		if (GravColor == Color8Bit::Magenta)
-		{
-			State.ChangeState("Player_Gravity");
-		}
+		MoveCheck(FVector::Right * _DeltaTime * Speed);
 	}
 
 	if (true == UEngineInput::IsPress('W'))
 	{
-
-		ColorCheck(FVector::Up * _DeltaTime * Speed);
-
-		if (ColColor != Color8Bit::Black)
-		{
-			AddActorLocation(FVector::Up * _DeltaTime * Speed);
-		}
-		if (GravColor == Color8Bit::Magenta)
-		{
-			State.ChangeState("Player_Gravity");
-		}
+		MoveCheck(FVector::Up * _DeltaTime * Speed);
 	}
 
 	if (true == UEngineInput::IsPress('S'))
 	{
-
-		ColorCheck(FVector::Down * _DeltaTime * Speed);
-
-		if (ColColor != Color8Bit::Black)
-		{
-			AddActorLocation(FVector::Down * _DeltaTime * Speed);
-		}
-		if (GravColor == Color8Bit::Magenta)
-		{
-			State.ChangeState("Player_Gravity");
-		}
+		MoveCheck(FVector::Down * _DeltaTime * Speed);
 	}
 
 	if (true == UEngineInput::IsFree('A') && true == IsFree('D') && true == IsFree('W') && true == IsFree('S'))

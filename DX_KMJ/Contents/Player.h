@@ -34,8 +34,11 @@ private:
 	USpriteRenderer* Renderer = nullptr;
 	USpriteRenderer* HeartRenderer = nullptr;
 	UCollision* Collision = nullptr;
+
 	Color8Bit ColColor;
 	Color8Bit GravColor;
+	Color8Bit PassColor;
+
 	float4 GravityValue;
 
 	float Speed = 200.0f;
@@ -59,6 +62,8 @@ private:
 
 	void DebugMessageFunction();
 	void ColorCheck(float4 _NextPos);
+
+	void MoveCheck(float4 _Dir);
 
 };
 
