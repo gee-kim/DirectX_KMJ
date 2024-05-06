@@ -473,9 +473,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-    <None Include="ThirdParty\FW1FontWrapper\Release\FW1FontWrapper.pdb">
-      <Filter>ThirdParty\FW1FontWrapper\Release</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="ThirdParty\DirectxTex\Debug\DirectXTex.lib">
@@ -493,10 +490,11 @@
     <CopyFileToFolders Include="ThirdParty\FW1FontWrapper\Release\FW1FontWrapper.dll">
       <Filter>ThirdParty\FW1FontWrapper\Release</Filter>
     </CopyFileToFolders>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="ThirdParty\FW1FontWrapper\Release\FW1FontWrapper.lib">
+    <CopyFileToFolders Include="ThirdParty\FW1FontWrapper\Release\FW1FontWrapper.pdb">
       <Filter>ThirdParty\FW1FontWrapper\Release</Filter>
-    </Library>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\FW1FontWrapper\Release\FW1FontWrapper.lib">
+      <Filter>ThirdParty\FW1FontWrapper\Release</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

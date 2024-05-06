@@ -87,6 +87,9 @@
     <ClInclude Include="Susie.h">
       <Filter>Global</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Text.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -145,6 +148,9 @@
     </ClCompile>
     <ClCompile Include="Susie.cpp">
       <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Text.cpp">
+      <Filter>GUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

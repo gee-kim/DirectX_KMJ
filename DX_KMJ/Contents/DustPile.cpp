@@ -13,10 +13,10 @@ ADustPile::ADustPile()
 		Renderer_i->SetupAttachment(Root);
 		Renderer_i->SetPivot(EPivot::BOT);
 		Renderers.push_back(Renderer_i);
-		
+
 
 	}
-		int a = 0;
+	int a = 0;
 	//
 	//{
 	//	USpriteRenderer* Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
@@ -227,29 +227,58 @@ void ADustPile::Tick(float _DeltaTime)
 
 	Count = Time;
 
-	if (Count % 2)
+	if (bubble)
 	{
-		Renderers[6]->SetActive(true);
-		Renderers[7]->SetActive(false);
-		Renderers[8]->SetActive(true);
-		Renderers[9]->SetActive(false);
-		Renderers[10]->SetActive(true);
-		Renderers[11]->SetActive(false);
-		Renderers[12]->SetActive(true);
-		//Renderers[13]->SetActive(false);
-	}
-	else
-	{
-		Renderers[6]->SetActive(false);
-		Renderers[7]->SetActive(true);
-		Renderers[8]->SetActive(false);
-		Renderers[9]->SetActive(true);
-		Renderers[10]->SetActive(false);
-		Renderers[11]->SetActive(true);
-		Renderers[12]->SetActive(false);
-		//Renderers[13]->SetActive(true);
+
+		if (Count % 2)
+		{
+			Renderers[6]->SetActive(true);
+			Renderers[7]->SetActive(false);
+			Renderers[8]->SetActive(true);
+			Renderers[9]->SetActive(false);
+			Renderers[10]->SetActive(true);
+			Renderers[11]->SetActive(false);
+			Renderers[12]->SetActive(true);
+			//Renderers[13]->SetActive(false);
+		}
+		else
+		{
+			Renderers[6]->SetActive(false);
+			Renderers[7]->SetActive(true);
+			Renderers[8]->SetActive(false);
+			Renderers[9]->SetActive(true);
+			Renderers[10]->SetActive(false);
+			Renderers[11]->SetActive(true);
+			Renderers[12]->SetActive(false);
+			//Renderers[13]->SetActive(true);
+		}
+
 	}
 
 
+}
+
+void ADustPile::SetEventMode()
+{
+	//
+	
+	bubble = false;
+
+	Renderers[0]->SetActive(false);
+	Renderers[1]->SetActive(false);
+	Renderers[2]->SetActive(false);
+	Renderers[3]->SetActive(false);
+	Renderers[4]->SetActive(false);
+	Renderers[5]->ChangeAnimation("DustPile_Bot");
+	Renderers[5]->SetOrder(ERenderOrder::BackObject);
+	Renderers[5]->SetAutoSize(1.8f, true);
+
+	Renderers[6]->SetActive(false);
+	Renderers[7]->SetActive(false);
+	Renderers[8]->SetActive(false);
+	Renderers[9]->SetActive(false);
+	Renderers[10]->SetActive(false);
+	Renderers[11]->SetActive(false);
+	Renderers[12]->SetActive(false);
 
 }

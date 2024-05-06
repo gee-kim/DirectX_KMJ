@@ -16,6 +16,7 @@
 #include <EngineCore/EngineDebug3D.h>
 
 #include <EngineCore/DefaultSceneComponent.h>
+#include <EngineCore/EngineFont.h>
 
 #include "ContentsEnum.h"
 #include "ContentsConstValue.h"

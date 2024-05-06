@@ -9,8 +9,11 @@
 #include "DarkEye.h"
 #include "MagicalGlass.h"
 #include "DustPile.h"
+#include "Susie.h"
 
 #include <EngineCore/Camera.h>
+#include "MyWidget.h"
+#include "UI_Text.h"
 
 
 ADarkGameMode::ADarkGameMode()
@@ -38,15 +41,22 @@ void ADarkGameMode::BeginPlay()
 	DarkMap->SetActorScale3D(ImageScale);
 	DarkMap->SetActorLocation({ ImageScale.hX(), -ImageScale.hY(), 0.0f });
 	
+	// À§Á¬ ¼ÂÆÃ
+	MyWidget* Widget = CreateWidget<MyWidget>(GetWorld(), "GameWidget");
+
+	//
+	std::shared_ptr<UI_Text> UIText = GetWorld()->SpawnActor<UI_Text>("UI_TEXT");
 
 	// PlayerSet
 	std::shared_ptr<APlayer> Player = GetWorld()->SpawnActor<APlayer>("Player");
-	Player->SetActorLocation(FVector(842.0f, -480.0f, 0.0f)); // start pos 
+	//Player->SetActorLocation(FVector(842.0f, -480.0f, 0.0f)); // start pos 
 	//Player->SetActorLocation(FVector(3200.0f, -820.0f, 0.0f)); //wobbly pos
 	//Player->SetActorLocation(FVector(6042.0f, -780.0f, 0.0f)); //gravity pos
 	//Player->SetActorLocation(FVector(7370.0f, -1428.0f, 0.0f)); // monster
-	//Player->SetActorLocation(FVector(9111.0f, -1410.0f, 0.0f)); //eyepuzzle
 	//Player->SetActorLocation(FVector(6520.0f, -1230.0f, 0.0f)); // monster
+	//Player->SetActorLocation(FVector(9111.0f, -1410.0f, 0.0f)); //eyepuzzle
+	Player->SetActorLocation(FVector(11250.0f, -1950.0f, 0.0f)); //susie
+
 
 	
 
@@ -148,6 +158,15 @@ void ADarkGameMode::BeginPlay()
 		DustPile->SetActorLocation(FVector(6520.0f, -1435.0f, 0.0f));
 	}
 	
+	// susie µîÀå ¾À
+	{
+		//std::shared_ptr<ADustPile> DustPile = GetWorld()->SpawnActor<ADustPile>("Monster");
+		//DustPile->SetActorLocation(FVector(11360.0f, -1965.0f, 0.0f));
+		//DustPile->SetEventMode();
+
+		std::shared_ptr<ASusie> Susie = GetWorld()->SpawnActor<ASusie>("SubChar");
+		Susie->SetActorLocation(FVector(11360.0f, -1963.0f, 0.0f));
+	}
 }
 
 

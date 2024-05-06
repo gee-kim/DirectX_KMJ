@@ -16,7 +16,9 @@ public :
 	ADustPile& operator =(const ADustPile& _Other)	 = delete;
 	ADustPile& operator =(ADustPile& _Other) noexcept	 = delete;
 
-protected:
+	void SetEventMode();
+
+	protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
@@ -25,6 +27,6 @@ private:
 	
 	float Time = 0.0f;
 	int Count = 1;
-
+	bool bubble = true;
 };
 

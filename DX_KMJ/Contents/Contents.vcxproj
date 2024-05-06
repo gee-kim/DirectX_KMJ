@@ -183,6 +183,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="UI_Text.h" />
     <ClInclude Include="Wobbly.h">
       <SubType>
       </SubType>
@@ -252,6 +253,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="UI_Text.cpp" />
     <ClCompile Include="Wobbly.cpp">
       <SubType>
       </SubType>

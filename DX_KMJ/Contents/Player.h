@@ -57,6 +57,7 @@ private:
 	void FreeMove(float _DeltaTime);
 	void Escape_Move(float _DeltaTime);
 	void Escape_Idle(float _DeltaTime);
+	void Event(float _DeltaTime);
 
 	bool IsEnd = false;
 

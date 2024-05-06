@@ -27,6 +27,7 @@ APlayer::APlayer()
 
 APlayer::~APlayer()
 {
+
 }
 
 void APlayer::BeginPlay()

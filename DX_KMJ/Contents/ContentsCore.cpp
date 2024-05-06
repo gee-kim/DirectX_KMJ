@@ -14,7 +14,7 @@ UContentsCore::~UContentsCore()
 
 void UContentsCore::Initialize()
 {
-	// GEngine->CreateLevel();
+	UEngineFont::Load("궁서");
 
 	{
 		// 파일의 헤더

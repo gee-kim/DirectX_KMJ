@@ -47,6 +47,8 @@ void APlayer::StateInit()
 	State.CreateState("Player_Escape_Move");
 	State.CreateState("Player_Escape_Idle");
 
+	State.CreateState("Player_Event");
+
 	InputOn();
 
 
@@ -100,6 +102,13 @@ void APlayer::StateInit()
 	State.SetStartFunction("Player_Escape_Idle", [=]()
 		{
 			DirAnimationChange("Kris_Heart_Idle");
+		}
+	);
+
+	State.SetUpdateFunction("Player_Event", std::bind(&APlayer::Event, this, std::placeholders::_1));
+	State.SetStartFunction("Player_Event", [=]()
+		{
+			Renderer->ChangeAnimation("Kris_Idle_Right");
 		}
 	);
 
@@ -378,6 +387,11 @@ void APlayer::Escape_Idle(float _DeltaTime)
 
 }
 
+
+void APlayer::Event(float _DeltaTime)
+{
+
+}
 
 void APlayer::Attak(float _DeltaTime)
 {
