@@ -20,7 +20,9 @@ protected:
 	void BeginPlay();
 	void Tick(float _DeltaTime);
 
-	UImage* Image = nullptr;
+	std::vector<UImage*> Images;
+	std::vector<UTextWidget*> TextWidgets;
+
 
 private:
 
