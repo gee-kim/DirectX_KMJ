@@ -114,48 +114,49 @@ void ASusie::EventMode(float _DeltaTime)
 {
 	InputOff();
 
-	Renderer->SetOrder(ERenderOrder::Susie_Bubble);
+	//Renderer->SetOrder(ERenderOrder::Susie_Bubble);
 
-	// 수지의 콜리젼과 플레이어가 만나게 되면 
-	Collision->CollisionEnter(ECollisionOrder::Player, [=](std::shared_ptr<UCollision> _Col)
-		{
-			Renderer->ChangeAnimation("Susie_shock");
-			DustPile->SetEventMode();
-		}
-	);
+	//// 수지의 콜리젼과 플레이어가 만나게 되면 
+	//Collision->CollisionEnter(ECollisionOrder::Player, [=](std::shared_ptr<UCollision> _Col)
+	//	{
+	//		Renderer->ChangeAnimation("Susie_shock");
+	//		DustPile->SetEventMode();
+	//	}
+	//);
 
-	// 키입력 체크해서 이벤트 단계 하나씩 진행
-	Collision->CollisionStay(ECollisionOrder::Player, [=](std::shared_ptr<UCollision> _Col)
-		{
-			// 플레이어 조작 안되게 하고싶음
-			AActor* Owner = _Col->GetActor();
+	//// 키입력 체크해서 이벤트 단계 하나씩 진행
+	//Collision->CollisionStay(ECollisionOrder::Player, [=](std::shared_ptr<UCollision> _Col)
+	//	{
+	//		// 플레이어 조작 안되게 하고싶음
+	//		AActor* Owner = _Col->GetActor();
 
-			Player = dynamic_cast<APlayer*>(Owner);
+	//		Player = dynamic_cast<APlayer*>(Owner);
 
-			if (nullptr == Player)
-			{
-				MsgBoxAssert("플레이어가 아닙니다.");
-			}
+	//		if (nullptr == Player)
+	//		{
+	//			MsgBoxAssert("플레이어가 아닙니다.");
+	//		}
 
-			Player->State.ChangeState("Player_Event");
+	//		Player->State.ChangeState("Player_Event");
 
-			//_Col->GetActor()->AddActorLocation(FVector::Zero);
+	//		//_Col->GetActor()->AddActorLocation(FVector::Zero);
 
-			if (true == UEngineInput::IsDown(VK_SPACE))
-			{
-				DustPile->SetActive(false);
-				Renderer->ChangeAnimation("Susie_Idle_Left");
-			}
-			//DustPile->SetEventMode();
-		}
-	);
+	//		if (true == UEngineInput::IsDown(VK_SPACE))
+	//		{
+	//			DustPile->SetActive(false);
+	//			Renderer->ChangeAnimation("Susie_Idle_Left");
 
-	//
-	Collision->CollisionExit(ECollisionOrder::Player, [=](std::shared_ptr<UCollision> _Col)
-		{
+	//		}
+	//		//DustPile->SetEventMode();
+	//	}
+	//);
 
-			Renderer->ChangeAnimation("Susie_Move_Right");
-			//State.ChangeState("Susie_Idle");
-		});
+	////
+	//Collision->CollisionExit(ECollisionOrder::Player, [=](std::shared_ptr<UCollision> _Col)
+	//	{
+
+	//		Renderer->ChangeAnimation("Susie_Move_Right");
+	//		//State.ChangeState("Susie_Idle");
+	//	});
 
 }

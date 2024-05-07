@@ -13,8 +13,14 @@
 
 #include <EngineCore/Camera.h>
 #include "MyWidget.h"
-#include "UI_Text.h"
+#include <EngineCore/StateManager.h>
 
+void GameEvent::Next()
+{
+	++CurState;
+	std::string Text = std::to_string(CurState);
+	State.ChangeState(Text);
+}
 
 ADarkGameMode::ADarkGameMode()
 {
@@ -43,10 +49,9 @@ void ADarkGameMode::BeginPlay()
 	
 	// 위젯 셋팅
 	MyWidget* Widget = CreateWidget<MyWidget>(GetWorld(), "GameWidget");
+	//Widget->SetText("오호호 텍스트 변경 테스트라네\n텍스트 변경 테스트라네");
 
-	//
-	std::shared_ptr<UI_Text> UIText = GetWorld()->SpawnActor<UI_Text>("UI_TEXT");
-
+	
 	// PlayerSet
 	std::shared_ptr<APlayer> Player = GetWorld()->SpawnActor<APlayer>("Player");
 	//Player->SetActorLocation(FVector(842.0f, -480.0f, 0.0f)); // start pos 
@@ -159,13 +164,70 @@ void ADarkGameMode::BeginPlay()
 	}
 	
 	// susie 등장 씬
+	std::shared_ptr<ASusie> Susie;
 	{
 		//std::shared_ptr<ADustPile> DustPile = GetWorld()->SpawnActor<ADustPile>("Monster");
 		//DustPile->SetActorLocation(FVector(11360.0f, -1965.0f, 0.0f));
 		//DustPile->SetEventMode();
 
-		std::shared_ptr<ASusie> Susie = GetWorld()->SpawnActor<ASusie>("SubChar");
+		Susie = GetWorld()->SpawnActor<ASusie>("SubChar");
 		Susie->SetActorLocation(FVector(11360.0f, -1963.0f, 0.0f));
+	}
+
+	{
+		// 이벤트 생성
+		std::shared_ptr<GameEvent> NewEvent = std::make_shared<GameEvent>();
+
+		// 이벤트 어떻게 시작되는지 체크 함수 만들기
+		NewEvent->EventStartCheck = std::bind([=]()
+			{
+				static bool EventStart = false;
+
+				Player->Collision->CollisionEnter(ECollisionOrder::SubChar, [&](std::shared_ptr<UCollision> _Collison)
+					{
+						EventStart = true;
+					});
+
+				return EventStart;
+			});
+
+		// 플레이어와 수지가 처음 만났을때 하고 싶은일
+		NewEvent->State.CreateState("0");
+		NewEvent->State.SetUpdateFunction("0", [=](float _Delta)
+			{
+				Player->State.ChangeState("Player_Event");
+				Susie->Renderer->SetOrder(ERenderOrder::Susie_Bubble);
+				Susie->Renderer->ChangeAnimation("Susie_shock");
+				Susie->DustPile->SetEventMode();
+				NewEvent->State.ChangeState("1");
+			}
+		);
+
+		NewEvent->State.CreateState("1");
+		NewEvent->State.SetUpdateFunction("1", [=](float _Delta)
+			{
+				int a = 0;
+
+				//static float WaitTime = 0.0f;
+				//WaitTime += _Delta;
+				//if (1.0f >= WaitTime)
+				//{
+				//	NewEvent->State.ChangeState("2");
+				//}
+
+				// 텍스트창 킨다
+			}
+		);
+
+		NewEvent->State.CreateState("2");
+		NewEvent->State.SetUpdateFunction("2", [=](float _Delta)
+			{
+				// 텍스트에 대사 친다.
+			}
+		);
+
+
+		Events.push_back(NewEvent);
 	}
 }
 
@@ -175,4 +237,40 @@ void ADarkGameMode::Tick(float _DeltaTime)
 	Super::Tick(_DeltaTime);
 	
 	
+	if (nullptr != CurEvent)
+	{
+		// 현재 실행중인 이벤트가 있다.
+		CurEvent->State.Update(_DeltaTime);
+	}
+	else
+	{
+		// 현재 실행중인 이벤트가 없다.
+
+		for (std::shared_ptr<GameEvent> Event : Events)
+		{
+			if (true == Event->EventStartCheck())
+			{
+				Event->Next();
+				CurEvent = Event;
+				break;
+			}
+			
+		}
+	}
+
+}
+
+// SusieEvent로 들어오는 조건은?
+// 플레이어가 버블콜리젼과 닿을때 ? 수지콜리젼과 닿을 때?
+void ADarkGameMode::SusieEvent(float _DeltaTime)
+{
+	Script.push_back("* 야! 무.. 물러서!\n* 더 가까이 왔다간 확...!");
+	Script.push_back("* ...크...\n* ..크리스?\n* 뭐 뭐냣, 너였냐...!");
+	Script.push_back("* ...무섭게 하지 말라고,\n*멍청아!");
+	Script.push_back("* 확 얼굴을\n*뭉개버릴라.");
+	Script.push_back("* 어쨋든..\n*밍기적 거리는건 여기까지 하고,");
+	Script.push_back("* ...여기 도대체 뭐냐?\n* 우리 어딨는건데?..!");
+
+
+
 }

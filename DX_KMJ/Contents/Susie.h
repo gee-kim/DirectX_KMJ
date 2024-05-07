@@ -6,6 +6,7 @@ class USpriteRenderer;
 class UCollision;
 class ADustPile;
 class APlayer;
+class MyWidget;
 
 class ASusie :public AActor
 {
@@ -22,6 +23,9 @@ public :
 
 	UStateManager State;
 
+	USpriteRenderer* Renderer = nullptr;
+	UCollision* Collision = nullptr;
+	std::shared_ptr<ADustPile> DustPile = nullptr;
 
 protected:
 	void BeginPlay() override;
@@ -29,12 +33,11 @@ protected:
 	
 
 private:
-	USpriteRenderer* Renderer = nullptr;
-	UCollision* Collision = nullptr;
 
 	APlayer* Player = nullptr;
+	MyWidget* Widget = nullptr;
 
-	std::shared_ptr<ADustPile> DustPile = nullptr;
+
 
 	void StateInit();
 

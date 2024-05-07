@@ -23,6 +23,7 @@ public:
 	APlayer& operator=(APlayer&& _Other) noexcept = delete;
 
 	UStateManager State;
+	UCollision* Collision = nullptr;
 
 protected:
 	void BeginPlay() override;
@@ -33,7 +34,6 @@ private:
 	std::string Dir = "_Right";
 	USpriteRenderer* Renderer = nullptr;
 	USpriteRenderer* HeartRenderer = nullptr;
-	UCollision* Collision = nullptr;
 
 	Color8Bit ColColor;
 	Color8Bit GravColor;

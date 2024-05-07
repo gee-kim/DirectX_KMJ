@@ -5,6 +5,7 @@
 
 class MyWidget : public UWidget
 {
+	GENERATED_BODY(UWidget)
 public : 
 	MyWidget();
 	~MyWidget();
@@ -14,14 +15,17 @@ public :
 	MyWidget& operator =(const MyWidget& _Other)	 = delete;
 	MyWidget& operator =(MyWidget& _Other) noexcept	 = delete;
 	
-	
+	void SetText(std::string _Text)
+	{
+		TextWidget->SetText(_Text);
+	}
 
 protected:
-	void BeginPlay();
-	void Tick(float _DeltaTime);
+	void BeginPlay() override;
+	void Tick(float _DeltaTime) override;
 
 	std::vector<UImage*> Images;
-	std::vector<UTextWidget*> TextWidgets;
+	UTextWidget* TextWidget = nullptr;
 
 
 private:
