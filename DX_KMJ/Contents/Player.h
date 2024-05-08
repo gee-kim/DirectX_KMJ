@@ -51,7 +51,6 @@ private:
 
 	void Idle(float _DeltaTime);
 	void Move(float _DeltaTime);
-	void Attak(float _DeltaTime);
 	void Fallen(float _DeltaTime);
 	void Gravity(float _DeltaTime);
 	void FreeMove(float _DeltaTime);

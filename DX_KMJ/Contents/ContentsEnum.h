@@ -7,8 +7,8 @@ enum class ERenderOrder
 	Susie_Bubble,
 	BackObject,
 	Monster,
-	SubChar,
 	Player,
+	SubChar,
 	Heart,
 	Bullet,
 
@@ -18,6 +18,7 @@ enum class ECollisionOrder
 {
 	PosCheck,
 	Player,
+	Susie_Bubble,
 	SubChar,
 	Monster,
 	Bullet,

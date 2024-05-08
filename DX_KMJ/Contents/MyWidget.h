@@ -15,8 +15,17 @@ public :
 	MyWidget& operator =(const MyWidget& _Other)	 = delete;
 	MyWidget& operator =(MyWidget& _Other) noexcept	 = delete;
 	
-	void SetText(std::string _Text)
+	void SetTextBoxOn();
+	void SetTextBoxOff();
+
+	void SetFaceOn();
+	void SetFaceOff();
+
+	void ChangeFace(std::string _FaceName);
+	
+	void SetTextScript(std::string _Text)
 	{
+		TextWidget->SetActive(true);
 		TextWidget->SetText(_Text);
 	}
 

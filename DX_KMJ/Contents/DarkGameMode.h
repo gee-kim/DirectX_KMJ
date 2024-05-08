@@ -7,12 +7,21 @@
 class GameEvent
 {
 public:
+	bool IsEnd = false;
+
 	std::function<bool()> EventStartCheck = nullptr;
 	UStateManager State;
 	int CurState = -1;
 
+	void End()
+	{
+		IsEnd = true;
+	}
+
 	void Next();
 };
+
+class ADustPile;
 
 class ADarkGameMode : public AGameMode
 {
@@ -35,11 +44,13 @@ protected:
 
 private:
 
-	int CurTextIndex = 0;
-	std::vector<std::string> Script;
+	float Susie_Speed = 30.0f;
+	FVector Susie_Left = { -2.2f, -0.8f, 0.0f, 0.0f };
 
 	// 이벤트라는것은
 	// 어떻게 시작하는가?
+
+	std::shared_ptr<ADustPile> DustBubble;
 
 	std::list<std::shared_ptr<GameEvent>> Events;
 	std::shared_ptr<GameEvent> CurEvent = nullptr;

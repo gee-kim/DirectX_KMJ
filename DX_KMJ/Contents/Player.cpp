@@ -91,8 +91,6 @@ void APlayer::Tick(float _DeltaTime)
 	);
 
 
-
-
 	DebugMessageFunction();
 }
 

@@ -393,8 +393,4 @@ void APlayer::Event(float _DeltaTime)
 
 }
 
-void APlayer::Attak(float _DeltaTime)
-{
-	
-}
 

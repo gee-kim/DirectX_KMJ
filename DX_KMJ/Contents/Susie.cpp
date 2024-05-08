@@ -86,8 +86,7 @@ void ASusie::StateInit()
 	State.SetUpdateFunction("Susie_EventMode", std::bind(&ASusie::EventMode, this, std::placeholders::_1));
 	State.SetStartFunction("Susie_EventMode", [=]()
 		{
-			DustPile = GetWorld()->SpawnActor<ADustPile>("Monster");
-			DustPile->SetActorLocation(FVector(11360.0f, -1965.0f, 0.0f));
+			
 		}
 	);
 
@@ -97,6 +96,21 @@ void ASusie::StateInit()
 
 void ASusie::Idle(float _DeltaTime)
 {
+
+	Collision->CollisionEnter(ECollisionOrder::Player, [=](std::shared_ptr<UCollision> _Col)
+			{
+
+			AActor* Owner = _Col->GetActor();
+
+			Player = dynamic_cast<APlayer*>(Owner);
+
+			if (nullptr == Player)
+			{
+				MsgBoxAssert("플레이어가 아닙니다.");
+			}
+			SetActorLocation(Player->GetActorLocation());
+		}
+		);
 
 	//if (true == IsPress('A') || true == IsPress('D') || true == IsPress('W') || true == IsPress('S'))
 	//{
