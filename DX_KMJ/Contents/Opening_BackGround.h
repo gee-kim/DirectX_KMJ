@@ -16,11 +16,17 @@ public :
 	AOpening_BackGround& operator =(const AOpening_BackGround& _Other)	 = delete;
 	AOpening_BackGround& operator =(AOpening_BackGround& _Other) noexcept	 = delete;
 
+
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 private:
+	USpriteRenderer* Logo = nullptr;
+	
+	float Time = 4.0f;
+
 
 };
 

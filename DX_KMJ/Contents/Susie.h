@@ -1,5 +1,5 @@
 #pragma once
-#include <EngineCore/Actor.h>
+#include "Character.h"
 #include <EngineCore/StateManager.h>
 
 class USpriteRenderer;
@@ -8,9 +8,9 @@ class ADustPile;
 class APlayer;
 class MyWidget;
 
-class ASusie :public AActor
+class ASusie :public ACharacter
 {
-	GENERATED_BODY(AActor)
+	GENERATED_BODY(ACharacter)
 
 public : 
 	ASusie();
@@ -21,11 +21,9 @@ public :
 	ASusie& operator =(const ASusie& _Other)	 = delete;
 	ASusie& operator =(ASusie& _Other) noexcept	 = delete;
 
-	UStateManager State;
 
 	USpriteRenderer* Renderer = nullptr;
 	UCollision* Collision = nullptr;
-	std::shared_ptr<ADustPile> DustPile = nullptr;
 
 protected:
 	void BeginPlay() override;
@@ -33,17 +31,15 @@ protected:
 	
 
 private:
-
 	APlayer* Player = nullptr;
 	MyWidget* Widget = nullptr;
 
-
+	void DirAnimationChange(std::string _AnimationName);
 
 	void StateInit();
 
 	void Idle(float _DeltaTime);
 	void Move(float _DeltaTime);
 	void EventMode(float _DeltaTime);
-
 };
 

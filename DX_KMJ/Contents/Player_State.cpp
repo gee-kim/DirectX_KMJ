@@ -213,10 +213,22 @@ void APlayer::MoveCheck(float4 _Dir)
 
 void APlayer::Move(/*const APlayer* this,*/ float _DeltaTime)
 {
+	// 1초에 200을 간다.
+
 	GetWorld()->GetMainCamera()->SetActorLocation(GetActorLocation() + float4{ 0.0f, 0.0f, -100.0f });
 
 	if (true == IsPress('A') || true == IsPress('D') || true == IsPress('W') || true == IsPress('S'))
 	{
+		static float PrevTIme = 1 / 60.0f;
+		static float CurTime = PrevTIme;
+
+		CurTime -= _DeltaTime;
+
+		if (0.0f >= CurTime)
+		{
+			CurTime += PrevTIme;
+			PrevPos.push_back(GetActorLocation());
+		}
 		DirAnimationChange("Kris_Move");
 	}
 

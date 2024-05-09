@@ -65,13 +65,12 @@ void ASusie::StateInit()
 	State.CreateState("Susie_Move");
 	State.CreateState("Susie_EventMode");
 
-
 	USpriteRenderer* StateRenderer = Renderer;
 
 	State.SetUpdateFunction("Susie_Idle", std::bind(&ASusie::Idle, this, std::placeholders::_1));
 	State.SetStartFunction("Susie_Idle", [=]()
 		{
-			//DirAnimationChange("Kris_Idle");
+			DirAnimationChange("Susie_Idle");
 		}
 	);
 
@@ -79,98 +78,63 @@ void ASusie::StateInit()
 	State.SetUpdateFunction("Susie_Move", std::bind(&ASusie::Move, this, std::placeholders::_1));
 	State.SetStartFunction("Susie_Move", [=]()
 		{
-			//DirAnimationChange("Kris_Move");
+			DirAnimationChange("Susie_Move");
 		}
 	);
 
 	State.SetUpdateFunction("Susie_EventMode", std::bind(&ASusie::EventMode, this, std::placeholders::_1));
 	State.SetStartFunction("Susie_EventMode", [=]()
 		{
-			
+
 		}
 	);
 
 	State.ChangeState("Susie_EventMode");
 }
 
+void ASusie::DirAnimationChange(std::string _AnimationName)
+{
+	//if (true == IsPress('A'))
+	//{
+	//	Dir = "_Left";
+	//}
+	//else if (true == IsPress('D'))
+	//{
+	//	Dir = "_Right";
+	//}
+	//else if (true == IsPress('W'))
+	//{
+	//	Dir = "_Up";
+	//}
+	//else if (true == IsPress('S'))
+	//{
+	//	Dir = "_Down";
+	//}
+
+	Renderer->ChangeAnimation(_AnimationName + Dir);
+
+}
 
 void ASusie::Idle(float _DeltaTime)
 {
-
-	Collision->CollisionEnter(ECollisionOrder::Player, [=](std::shared_ptr<UCollision> _Col)
-			{
-
-			AActor* Owner = _Col->GetActor();
-
-			Player = dynamic_cast<APlayer*>(Owner);
-
-			if (nullptr == Player)
-			{
-				MsgBoxAssert("플레이어가 아닙니다.");
-			}
-			SetActorLocation(Player->GetActorLocation());
-		}
-		);
-
-	//if (true == IsPress('A') || true == IsPress('D') || true == IsPress('W') || true == IsPress('S'))
-	//{
-	//	State.ChangeState("Susie_Move");
-	//	return;
-	//}
+	if (true == IsPress('A') || true == IsPress('D') || true == IsPress('W') || true == IsPress('S'))
+	{
+		State.ChangeState("Susie_Move");
+		return;
+	}
 }
 
 void ASusie::Move(float _DeltaTime)
 {
-
+	if (true == UEngineInput::IsFree('A') && true == IsFree('D') && true == IsFree('W') && true == IsFree('S'))
+	{
+		State.ChangeState("Susie_Idle");
+		return;
+	}
 }
 
 void ASusie::EventMode(float _DeltaTime)
 {
 	InputOff();
-
-	//Renderer->SetOrder(ERenderOrder::Susie_Bubble);
-
-	//// 수지의 콜리젼과 플레이어가 만나게 되면 
-	//Collision->CollisionEnter(ECollisionOrder::Player, [=](std::shared_ptr<UCollision> _Col)
-	//	{
-	//		Renderer->ChangeAnimation("Susie_shock");
-	//		DustPile->SetEventMode();
-	//	}
-	//);
-
-	//// 키입력 체크해서 이벤트 단계 하나씩 진행
-	//Collision->CollisionStay(ECollisionOrder::Player, [=](std::shared_ptr<UCollision> _Col)
-	//	{
-	//		// 플레이어 조작 안되게 하고싶음
-	//		AActor* Owner = _Col->GetActor();
-
-	//		Player = dynamic_cast<APlayer*>(Owner);
-
-	//		if (nullptr == Player)
-	//		{
-	//			MsgBoxAssert("플레이어가 아닙니다.");
-	//		}
-
-	//		Player->State.ChangeState("Player_Event");
-
-	//		//_Col->GetActor()->AddActorLocation(FVector::Zero);
-
-	//		if (true == UEngineInput::IsDown(VK_SPACE))
-	//		{
-	//			DustPile->SetActive(false);
-	//			Renderer->ChangeAnimation("Susie_Idle_Left");
-
-	//		}
-	//		//DustPile->SetEventMode();
-	//	}
-	//);
-
-	////
-	//Collision->CollisionExit(ECollisionOrder::Player, [=](std::shared_ptr<UCollision> _Col)
-	//	{
-
-	//		Renderer->ChangeAnimation("Susie_Move_Right");
-	//		//State.ChangeState("Susie_Idle");
-	//	});
 
 }

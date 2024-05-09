@@ -191,6 +191,7 @@ void ADarkGameMode::BeginPlay()
 		// 이벤트 생성
 		std::shared_ptr<GameEvent> NewEvent = std::make_shared<GameEvent>();
 
+
 		// 이벤트 어떻게 시작되는지 체크 함수 만들기
 		NewEvent->EventStartCheck = std::bind([=]()
 			{
@@ -203,6 +204,7 @@ void ADarkGameMode::BeginPlay()
 
 				return EventStart;
 			});
+
 
 		// 플레이어와 수지가 처음 만났을때 하고 싶은일
 		NewEvent->State.CreateState("0");
@@ -450,6 +452,7 @@ void ADarkGameMode::BeginPlay()
 			}
 		);
 
+
 		NewEvent->State.CreateState("12");
 		NewEvent->State.SetUpdateFunction("12", [=](float _Delta)
 			{
@@ -457,7 +460,8 @@ void ADarkGameMode::BeginPlay()
 				Player->State.ChangeState("Player_Idle");
 				Susie->State.ChangeState("Susie_Idle");
 
-				//Susie->Link(Player);
+				Player->PrevPos.clear();
+				Player->Link(Susie.get());
 
 				NewEvent->End();
 				return;

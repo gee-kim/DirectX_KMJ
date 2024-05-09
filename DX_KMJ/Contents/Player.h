@@ -1,6 +1,5 @@
 #pragma once
-#include <EngineCore/Actor.h>
-#include <EngineCore/StateManager.h>
+#include "Character.h"
 #include <EngineBase/EngineSerializer.h>
 #include "ContentsConstValue.h"
 
@@ -8,9 +7,9 @@
 class USpriteRenderer;
 class UCollision;
 
-class APlayer : public AActor
+class APlayer : public ACharacter
 {
-	GENERATED_BODY(AActor)
+	GENERATED_BODY(ACharacter)
 
 public:
 	APlayer();
@@ -22,7 +21,6 @@ public:
 	APlayer& operator=(const APlayer& _Other) = delete;
 	APlayer& operator=(APlayer&& _Other) noexcept = delete;
 
-	UStateManager State;
 	UCollision* Collision = nullptr;
 
 protected:
@@ -31,7 +29,6 @@ protected:
 	void DirAnimationChange(std::string _AnimationName);
 
 private:
-	std::string Dir = "_Right";
 	USpriteRenderer* Renderer = nullptr;
 	USpriteRenderer* HeartRenderer = nullptr;
 

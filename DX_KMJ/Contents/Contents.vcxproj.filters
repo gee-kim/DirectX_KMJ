@@ -90,6 +90,9 @@
     <ClInclude Include="UI_Text.h">
       <Filter>GUI</Filter>
     </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Global</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -151,6 +154,9 @@
     </ClCompile>
     <ClCompile Include="UI_Text.cpp">
       <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Global</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

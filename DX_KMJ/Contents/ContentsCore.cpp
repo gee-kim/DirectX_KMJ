@@ -39,7 +39,7 @@ void UContentsCore::Initialize()
 
 	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
 	GEngine->CreateLevel<ADarkGameMode>("DarkLevel");
-	GEngine->ChangeLevel("DarkLevel");
+	GEngine->ChangeLevel("PlayLevel");
 
 	//UEngineDirectory Dir;
 	//Dir.MoveToSearchChild("Resources");
