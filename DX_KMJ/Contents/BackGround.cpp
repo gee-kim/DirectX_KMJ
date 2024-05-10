@@ -14,6 +14,8 @@ ABackGround::ABackGround()
 	Back_Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
 	Back_Renderer->SetupAttachment(Root);
 		
+	Logo_Renderer = CreateDefaultSubObject<USpriteRenderer>("Renderer");
+	Logo_Renderer->SetupAttachment(Root);
 
 	SetRoot(Root);
 }

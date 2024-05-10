@@ -23,6 +23,7 @@ protected:
 
 	USpriteRenderer* Renderer = nullptr;
 	USpriteRenderer* Back_Renderer = nullptr;
+	USpriteRenderer* Logo_Renderer = nullptr;
 
 	void SwitchDebug();
 

@@ -1,18 +1,18 @@
 #include "PreCompile.h"
-#include "PlayGameMode.h"
+#include "OpeningGameMode.h"
 #include "Opening_BackGround.h"
 #include <EngineCore/Camera.h>
 #include "Player.h"
 
-APlayGameMode::APlayGameMode()
+AOpeningGameMode::AOpeningGameMode()
 {
 }
 
-APlayGameMode::~APlayGameMode()
+AOpeningGameMode::~AOpeningGameMode()
 {
 }
 
-void APlayGameMode::BeginPlay()
+void AOpeningGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -42,7 +42,7 @@ void APlayGameMode::BeginPlay()
 }
 
 
-void APlayGameMode::Tick(float _DeltaTime)
+void AOpeningGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 

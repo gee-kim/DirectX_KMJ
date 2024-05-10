@@ -23,9 +23,9 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
-	USpriteRenderer* Logo = nullptr;
 	
-	float Time = 4.0f;
+	float OffTime = 4.0f;
+	float OnTime = 0.0f;
 
 
 };

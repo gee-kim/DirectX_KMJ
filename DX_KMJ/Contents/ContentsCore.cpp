@@ -1,6 +1,6 @@
 #include "PreCompile.h"
 #include "ContentsCore.h"
-#include "PlayGameMode.h"
+#include "OpeningGameMode.h"
 #include "DarkGameMode.h"
 #include <EngineCore/EngineSprite.h>
 
@@ -15,6 +15,8 @@ UContentsCore::~UContentsCore()
 void UContentsCore::Initialize()
 {
 	UEngineFont::Load("±Ã¼­");
+	UEngineFont::Load("¹ÙÅÁ");
+	UEngineFont::Load("±¼¸²");
 
 	{
 		// ÆÄÀÏÀÇ Çì´õ
@@ -37,9 +39,9 @@ void UContentsCore::Initialize()
 	}
 
 
-	GEngine->CreateLevel<APlayGameMode>("PlayLevel");
+	GEngine->CreateLevel<AOpeningGameMode>("PlayLevel");
 	GEngine->CreateLevel<ADarkGameMode>("DarkLevel");
-	GEngine->ChangeLevel("PlayLevel");
+	GEngine->ChangeLevel("DarkLevel");
 
 	//UEngineDirectory Dir;
 	//Dir.MoveToSearchChild("Resources");

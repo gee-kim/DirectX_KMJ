@@ -36,7 +36,7 @@
     <ClInclude Include="PreCompile.h">
       <Filter>PreCompile</Filter>
     </ClInclude>
-    <ClInclude Include="PlayGameMode.h">
+    <ClInclude Include="OpeningGameMode.h">
       <Filter>OpeningLevel</Filter>
     </ClInclude>
     <ClInclude Include="ContentsEnum.h">
@@ -101,7 +101,7 @@
     <ClCompile Include="PreCompile.cpp">
       <Filter>PreCompile</Filter>
     </ClCompile>
-    <ClCompile Include="PlayGameMode.cpp">
+    <ClCompile Include="OpeningGameMode.cpp">
       <Filter>OpeningLevel</Filter>
     </ClCompile>
     <ClCompile Include="ContentsConstValue.cpp">

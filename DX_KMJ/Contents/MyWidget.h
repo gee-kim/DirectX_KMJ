@@ -25,8 +25,8 @@ public :
 	
 	void SetTextScript(std::string _Text)
 	{
-		TextWidget->SetActive(true);
-		TextWidget->SetText(_Text);
+		TextWidgets[0]->SetActive(true);
+		TextWidgets[0]->SetText(_Text);
 	}
 
 protected:
@@ -34,7 +34,7 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 	std::vector<UImage*> Images;
-	UTextWidget* TextWidget = nullptr;
+	std::vector<UTextWidget*> TextWidgets;
 
 
 private:

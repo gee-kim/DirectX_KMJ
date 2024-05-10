@@ -20,14 +20,18 @@ void AOpening_BackGround::BeginPlay()
 	Back_Renderer->SetAutoSize(1.0f, true);
 	Renderer->SetOrder(ERenderOrder::ColBack);
 
-	Renderer->SetSprite("spr_krisandsusie_fall_ch1_0.png");
-	Renderer->SetAutoSize(Time, true);
-	Renderer->SetOrder(ERenderOrder::Back);
+	{
+		Renderer->SetSprite("spr_krisandsusie_fall_ch1_0.png");
+		Renderer->SetAutoSize(OffTime, true);
+		Renderer->SetOrder(ERenderOrder::Back);
+	}
 
-	//Logo->SetSprite("IMAGE_LOGO_CENTER_ch1_0.png");
-	//Logo->SetAutoSize(1.0f, true);
-	//Logo->SetOrder(ERenderOrder::Back);
-	//Logo->SetActive(false);
+	{
+		Logo_Renderer->SetSprite("IMAGE_LOGO_CENTER_ch1_0.png");
+		Logo_Renderer->SetAutoSize(OnTime, true);
+		Logo_Renderer->SetOrder(ERenderOrder::Back);
+		Logo_Renderer->SetActive(false);
+	}
 
 }
 
@@ -36,20 +40,29 @@ void AOpening_BackGround::Tick(float _DeltaTime)
 	// 위에 뭔가를 쳐야할때도 있다.
 	Super::Tick(_DeltaTime);
 
-	Time -= _DeltaTime;
-	Renderer->SetAutoSize(Time, true);
+	OffTime -= _DeltaTime;
+	Renderer->SetAutoSize(OffTime, true);
 
-	if (Time <= 0.0f)
+	if (0.0f >= OffTime)
 	{
-		//Time = 0.0f;
 		Renderer->SetActive(false);
-		
-		//Logo->SetActive(true);
-		//Time += _DeltaTime;
-
-		//Logo->SetAutoSize(Time, true);
+		OffTime = 0.0f;
 	}
+	
+	OnTime += _DeltaTime;
 
+	if (4.0f <= OnTime)
+	{
+		Logo_Renderer->SetActive(true);
+		Logo_Renderer->SetAutoSize(OnTime - 4.0f, true);
+
+		if (6.5f <= OnTime)
+		{
+			Logo_Renderer->SetAutoSize(2.5f, true);
+		}
+
+	}
+	
 
 
 }

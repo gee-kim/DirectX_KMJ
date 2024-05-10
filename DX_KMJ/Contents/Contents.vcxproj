@@ -218,7 +218,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="PlayGameMode.h" />
+    <ClInclude Include="OpeningGameMode.h" />
     <ClInclude Include="ContentsCore.h">
       <SubType>
       </SubType>
@@ -295,7 +295,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="PlayGameMode.cpp" />
+    <ClCompile Include="OpeningGameMode.cpp" />
     <ClCompile Include="ContentsCore.cpp">
       <SubType>
       </SubType>
