@@ -6,6 +6,7 @@
 // Ό³Έν :
 class USpriteRenderer;
 class UCollision;
+class AHpWidget;
 
 class APlayer : public ACharacter
 {
@@ -31,6 +32,7 @@ protected:
 private:
 	USpriteRenderer* Renderer = nullptr;
 	USpriteRenderer* HeartRenderer = nullptr;
+	AHpWidget* HpWidget = nullptr;
 
 	Color8Bit ColColor;
 	Color8Bit GravColor;
@@ -42,7 +44,9 @@ private:
 	float FreeMoveSpeed = 1000.0f;
 	float DropSpeed = 500.0f;
 
-	float TimeCount = 5.0f;
+	int TimeCount = 5;
+
+	float ShakeTime = 0.5f;
 
 	void StateInit();
 

@@ -28,7 +28,7 @@ public :
 		TextWidgets[0]->SetActive(true);
 		TextWidgets[0]->SetText(_Text);
 	}
-
+	
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
