@@ -16,17 +16,17 @@
     <Filter Include="OpeningLevel\Actor">
       <UniqueIdentifier>{94cd211b-c9f9-466d-a03a-8dcebac80ab1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="PlayLevel0">
-      <UniqueIdentifier>{d259c4db-3709-4222-ab04-657852622125}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="PlayLevel0\Actor">
-      <UniqueIdentifier>{e690c634-157f-4525-993c-4dd92324144f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GUI">
       <UniqueIdentifier>{1e4f2363-015f-434d-9bce-a053f6d4fd90}</UniqueIdentifier>
     </Filter>
     <Filter Include="Global">
       <UniqueIdentifier>{96d10c02-9765-4cb8-9bbf-12726aaa6a87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayLevel">
+      <UniqueIdentifier>{d259c4db-3709-4222-ab04-657852622125}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayLevel\Actor">
+      <UniqueIdentifier>{e690c634-157f-4525-993c-4dd92324144f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,10 +46,10 @@
       <Filter>Option</Filter>
     </ClInclude>
     <ClInclude Include="DarkGameMode.h">
-      <Filter>PlayLevel0</Filter>
+      <Filter>PlayLevel</Filter>
     </ClInclude>
     <ClInclude Include="DarkMap.h">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="BackGround.h">
       <Filter>Global</Filter>
@@ -61,28 +61,28 @@
       <Filter>OpeningLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="Wobbly_Monster.h">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="Wobbly_Bullet.h">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="Wobbly.h">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="DarkEye.h">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="EyePuzzle.h">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="MyWidget.h">
       <Filter>GUI</Filter>
     </ClInclude>
     <ClInclude Include="MagicalGlass.h">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="DustPile.h">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClInclude>
     <ClInclude Include="Susie.h">
       <Filter>Global</Filter>
@@ -108,10 +108,10 @@
       <Filter>Option</Filter>
     </ClCompile>
     <ClCompile Include="DarkGameMode.cpp">
-      <Filter>PlayLevel0</Filter>
+      <Filter>PlayLevel</Filter>
     </ClCompile>
     <ClCompile Include="DarkMap.cpp">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
       <Filter>Global</Filter>
@@ -126,28 +126,28 @@
       <Filter>Global</Filter>
     </ClCompile>
     <ClCompile Include="Wobbly_Monster.cpp">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="Wobbly_Bullet.cpp">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="Wobbly.cpp">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="DarkEye.cpp">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="EyePuzzle.cpp">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="MyWidget.cpp">
       <Filter>GUI</Filter>
     </ClCompile>
     <ClCompile Include="MagicalGlass.cpp">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="DustPile.cpp">
-      <Filter>PlayLevel0\Actor</Filter>
+      <Filter>PlayLevel\Actor</Filter>
     </ClCompile>
     <ClCompile Include="Susie.cpp">
       <Filter>Global</Filter>
