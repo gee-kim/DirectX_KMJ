@@ -35,7 +35,7 @@ void MyWidget::BeginPlay()
 		Image->SetPosition({ 550, 0 });
 		Images.push_back(Image);
 	}
-	
+
 	// 텍스트박스
 	{
 		UImage* Image = CreateWidget<UImage>(GetWorld(), "TextBox");
@@ -46,7 +46,7 @@ void MyWidget::BeginPlay()
 		Image->SetActive(false);
 		Images.push_back(Image);
 	}
-	
+
 	// 수지 face 이미지
 	{
 		UImage* Image = CreateWidget<UImage>(GetWorld(), "SusieFace");
@@ -77,33 +77,35 @@ void MyWidget::BeginPlay()
 		TextWidget->SetFlag(FW1_LEFT);
 
 		TextWidgets.push_back(TextWidget);
-		
+
 	}
 
 
-	//Hp 에너지바 숫자
-	{
-		UImage* Image = CreateWidget<UImage>(GetWorld(), "Hpbar_Numbers");
-		//Image->SetupAttachment(this);
-		Image->CreateAnimation("Hpbar_0", "hpbar_image", 0.0f, false, 0, 0);
-		Image->CreateAnimation("Hpbar_1", "hpbar_image", 0.0f, false, 1, 1);
-		Image->CreateAnimation("Hpbar_2", "hpbar_image", 0.0f, false, 2, 2);
-		Image->CreateAnimation("Hpbar_3", "hpbar_image", 0.0f, false, 3, 3);
-		Image->CreateAnimation("Hpbar_4", "hpbar_image", 0.0f, false, 4, 4);
-		Image->CreateAnimation("Hpbar_5", "hpbar_image", 0.0f, false, 5, 5);
-		Image->CreateAnimation("Hpbar_6", "hpbar_image", 0.0f, false, 6, 6);
-		Image->CreateAnimation("Hpbar_7", "hpbar_image", 0.0f, false, 7, 7);
+	////Hp 에너지바 숫자
+	//{
+	//	UImage* Image = CreateWidget<UImage>(GetWorld(), "Hpbar_Numbers");
+	//	//Image->SetupAttachment(this);
+	//	Image->CreateAnimation("Hpbar_0", "hpbar_image", 0.0f, false, 0, 0);
+	//	Image->CreateAnimation("Hpbar_1", "hpbar_image", 0.0f, false, 1, 1);
+	//	Image->CreateAnimation("Hpbar_2", "hpbar_image", 0.0f, false, 2, 2);
+	//	Image->CreateAnimation("Hpbar_3", "hpbar_image", 0.0f, false, 3, 3);
+	//	Image->CreateAnimation("Hpbar_4", "hpbar_image", 0.0f, false, 4, 4);
+	//	Image->CreateAnimation("Hpbar_5", "hpbar_image", 0.0f, false, 5, 5);
+	//	Image->CreateAnimation("Hpbar_6", "hpbar_image", 0.0f, false, 6, 6);
+	//	Image->CreateAnimation("Hpbar_7", "hpbar_image", 0.0f, false, 7, 7);
 
-		Image->ChangeAnimation("Hpbar_0");
+	//	Image->ChangeAnimation("Hpbar_0");
 
-		Image->SetAutoSize(0.4f, true);
-		Image->SetPosition({ 20, -305 });
-		//Image->SetActive(false);
-		Images.push_back(Image);
+	//	Image->SetAutoSize(0.4f, true);
+	//	Image->SetPosition({ 20, -305 });
+	//	//Image->SetActive(false);
+	//	Images.push_back(Image);
+		//}
+
+
+		AddToViewPort(1);
+
 	
-
-	AddToViewPort(1);
-
 }
 
 void MyWidget::Tick(float _DeltaTime)
