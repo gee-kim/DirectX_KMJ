@@ -114,7 +114,7 @@ void APlayer::StateInit()
 
 
 
-	State.ChangeState("Player_Idle");
+	State.ChangeState("Player_Fallen");
 }
 
 void APlayer::DirAnimationChange(std::string _AnimationName)

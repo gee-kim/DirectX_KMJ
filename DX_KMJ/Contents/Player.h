@@ -44,9 +44,10 @@ private:
 	float FreeMoveSpeed = 1000.0f;
 	float DropSpeed = 500.0f;
 
-	int TimeCount = 5;
+	float TimeCount = 3.0f;
 
 	float ShakeTime = 0.5f;
+	bool IsWidgetOn = false;
 
 	void StateInit();
 

@@ -46,6 +46,9 @@ void AWobbly::Tick(float _DeltaTime)
 	CheckCollision->CollisionEnter(ECollisionOrder::Player, [=](std::shared_ptr<UCollision> _Col)
 		{
 			Renderer->ChangeAnimation("Wobbly_Move");
+			//UEngineSound::SoundPlay("snd_wobbler.wav");
+
+			
 		});
 
 

@@ -19,11 +19,14 @@ public :
 	void SetHpWidgetOn();
 	void SetHpWidgetOff();
 
+	void ChangeNumber(int _Num);
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
 
 private:
 	std::vector<UImage*> Images;
+	UTextWidget* TextWidget = nullptr;
 };
 

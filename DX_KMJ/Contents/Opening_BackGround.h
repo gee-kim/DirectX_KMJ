@@ -24,7 +24,7 @@ protected:
 
 private:
 	
-	float OffTime = 4.0f;
+	float OffTime = 3.5f;
 	float OnTime = 0.0f;
 
 

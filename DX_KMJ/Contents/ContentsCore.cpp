@@ -37,23 +37,24 @@ void UContentsCore::Initialize()
 		}
 
 	}
+	// 사운드 로드
+	{
+		UEngineDirectory Dir;
+		Dir.MoveToSearchChild("Resources");
+		Dir.Move("Sound");
+		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".ogg", ".wav" });
+		for (UEngineFile& File : Files)
+		{
+			UEngineSound::Load(File.GetFullPath());
+		}
 
+	}
 
-	GEngine->CreateLevel<AOpeningGameMode>("PlayLevel");
+	GEngine->CreateLevel<AOpeningGameMode>("OpeningLevel");
 	GEngine->CreateLevel<ADarkGameMode>("DarkLevel");
-	GEngine->ChangeLevel("DarkLevel");
+	GEngine->ChangeLevel("OpeningLevel");
 
-	//UEngineDirectory Dir;
-	//Dir.MoveToSearchChild("Resources");
-	//
-	//std::vector<UEngineFile> Files = Dir.GetAllFile({ ".wav" });
-	//for (UEngineFile& File : Files)
-	//{
-	//	UEngineSound::Load(File.GetFullPath());
-	//}
-
-	//UEngineSound::SoundPlay("anipang_ingame.wav");
-
+	
 
 
 	int a = 0;

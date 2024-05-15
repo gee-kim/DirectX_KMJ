@@ -7,7 +7,9 @@ public :
 	static std::shared_ptr<UEngineTexture> MapTex;
 	static float4 MapTexScale;
 
-	static int Count;
+	static int MonsterCount;
+	static int BulletCount;
+
 	static bool IsMagicGlassOn;
 
 };

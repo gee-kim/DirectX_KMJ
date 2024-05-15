@@ -78,9 +78,9 @@ void APlayer::Tick(float _DeltaTime)
 		{
 
 
-			if (2 <= UContentsConstValue::Count)
+			if (2 <= UContentsConstValue::MonsterCount)
 			{
-				HpWidget->SetActive(false);
+				//HpWidget->SetActive(false);
 				
 				State.ChangeState("Player_Idle");
 				HeartRenderer->SetActive(false);
@@ -88,11 +88,23 @@ void APlayer::Tick(float _DeltaTime)
 				//HpWidget->SetHpWidgetOff();
 
 				int a = 0;
-				UContentsConstValue::Count = 0;
+				UContentsConstValue::MonsterCount = 0;
+
+
+				if (IsWidgetOn)
+				{
+					HpWidget->SetHpWidgetOff();
+					UContentsConstValue::BulletCount = 0;
+
+					IsWidgetOn = false;
+
+					int a = 0;
+				}
+
 				return;
 
 			}
-			++UContentsConstValue::Count;
+			++UContentsConstValue::MonsterCount;
 		}
 	);
 
@@ -102,43 +114,77 @@ void APlayer::Tick(float _DeltaTime)
 		{
 			//Bullet콜리젼과 만나면 플레이어 떨림?, Hpbar위젯 on
 			// 위젯 on은 최초 한번만 되고 hp down Count 세서 hp애니메이션 체인지 해줘야함.
-			
+			// d키가 눌렸으면 a 만큼 가고 , A 키인지 체크해서 d 로 보내기
+			if (true == IsPress('D'))
+			{
+				Renderer->AddPosition(FVector(-5.f, 0.f));
+				HeartRenderer->AddPosition(FVector(-5.f, 0.f));
+			}
+			else if (true == IsPress('A'))
+			{
 				Renderer->AddPosition(FVector(5.f, 0.f));
+				HeartRenderer->AddPosition(FVector(5.f, 0.f));
+			}
 
-				ShakeTime -= _DeltaTime;
-				if (0.0f >= ShakeTime)
-				{
-					Renderer->AddPosition(FVector(-5.f, 0.f));
-				}
-			
-				HpWidget = CreateWidget<AHpWidget>(GetWorld(),"HpWidget");
-
+			if (0 == UContentsConstValue::BulletCount)
+			{
+				HpWidget = CreateWidget<AHpWidget>(GetWorld(), "HpWidget");
 				HpWidget->SetActive(true);
-				//HpWidget->SetHpWidgetOn();
 
+				IsWidgetOn = true;
+			}
+			else if (1 == UContentsConstValue::BulletCount)
+			{
+				HpWidget->ChangeNumber(1);
+
+			}
+			else if (2 == UContentsConstValue::BulletCount)
+			{
+				HpWidget->ChangeNumber(2);
+
+			}
+			else if (3 == UContentsConstValue::BulletCount)
+			{
+				HpWidget->ChangeNumber(3);
+
+			}
+			else if (4 == UContentsConstValue::BulletCount)
+			{
+				HpWidget->ChangeNumber(4);
+
+			}
+			else if (5 == UContentsConstValue::BulletCount)
+			{
+				HpWidget->ChangeNumber(5);
+
+			}
+			else if (6 == UContentsConstValue::BulletCount)
+			{
+				HpWidget->ChangeNumber(6);
+
+			}
+			else if (7 <= UContentsConstValue::BulletCount)
+			{
+
+				//게임오버 화면 뜨게 해준다.
+				return;
+
+			}
+
+			++UContentsConstValue::BulletCount;
+				
 		}
 	);
 
 	Collision->CollisionStay(ECollisionOrder::Bullet, [=](std::shared_ptr<UCollision> _Collison)
 		{
-			//State.ChangeState("Player_Escape_Move");
-			//HeartRenderer->SetActive(true);
+			
 		}
 	);
+
 	Collision->CollisionExit(ECollisionOrder::Bullet, [=](std::shared_ptr<UCollision> _Collison)
 		{
-
-			//if (2 <= UContentsConstValue::Count)
-			//{
-			//	State.ChangeState("Player_Idle");
-			//	HeartRenderer->SetActive(false);
-
-			//	int a = 0;
-			//	UContentsConstValue::Count = 0;
-			//	return;
-
-			//}
-			//++UContentsConstValue::Count;
+			
 		}
 	);
 

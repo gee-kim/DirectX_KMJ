@@ -33,6 +33,8 @@ void AOpening_BackGround::BeginPlay()
 		Logo_Renderer->SetActive(false);
 	}
 
+	UEngineSound::SoundPlay("AUDIO_INTRONOISE.ogg");
+
 }
 
 void AOpening_BackGround::Tick(float _DeltaTime)
@@ -51,14 +53,14 @@ void AOpening_BackGround::Tick(float _DeltaTime)
 	
 	OnTime += _DeltaTime;
 
-	if (4.0f <= OnTime)
+	if (5.0f <= OnTime)
 	{
 		Logo_Renderer->SetActive(true);
-		Logo_Renderer->SetAutoSize(OnTime - 4.0f, true);
+		Logo_Renderer->SetAutoSize(OnTime - 5.0f, true);
 
-		if (6.5f <= OnTime)
+		if (8.0f <= OnTime)
 		{
-			Logo_Renderer->SetAutoSize(2.5f, true);
+			Logo_Renderer->SetAutoSize(3.0f, true);
 		}
 
 	}
