@@ -67,5 +67,8 @@ private:
 
 	void MoveCheck(float4 _Dir);
 
+	UEngineSoundPlayer BGMPlayer1;
+	UEngineSoundPlayer BGMPlayer2;
+	UEngineSoundPlayer BGMPlayer3;
 };
 

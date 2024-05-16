@@ -21,6 +21,7 @@ enum class ECollisionOrder
 	Susie_Bubble,
 	SubChar,
 	Monster,
+	Check,
 	Bullet,
 
 };

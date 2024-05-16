@@ -93,6 +93,9 @@
     <ClInclude Include="HpWidget.h">
       <Filter>GUI</Filter>
     </ClInclude>
+    <ClInclude Include="Sign.h">
+      <Filter>PlayLevel\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -157,6 +160,9 @@
     </ClCompile>
     <ClCompile Include="HpWidget.cpp">
       <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Sign.cpp">
+      <Filter>PlayLevel\Actor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -16,7 +16,7 @@ public :
 	AOpening_BackGround& operator =(const AOpening_BackGround& _Other)	 = delete;
 	AOpening_BackGround& operator =(AOpening_BackGround& _Other) noexcept	 = delete;
 
-
+	void SetLogoAutoSize(float _Scale);
 
 protected:
 	void BeginPlay() override;

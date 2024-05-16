@@ -10,6 +10,7 @@
 #include "MagicalGlass.h"
 #include "DustPile.h"
 #include "Susie.h"
+#include "Sign.h"
 
 #include <EngineCore/Camera.h>
 #include "MyWidget.h"
@@ -33,6 +34,13 @@ ADarkGameMode::~ADarkGameMode()
 void ADarkGameMode::BeginPlay()
 {
 	Super::BeginPlay();
+	
+	//왜 안되냐?
+	if (true == UContentsConstValue::IsOpeningOff)
+	{
+		BGMPlayer = UEngineSound::SoundPlay("basement.ogg");
+		int a = 0;
+	}
 
 	// DarkMap 
 	std::shared_ptr<ADarkMap> DarkMap = GetWorld()->SpawnActor<ADarkMap>("DarkMap");
@@ -117,6 +125,14 @@ void ADarkGameMode::BeginPlay()
 	{
 		std::shared_ptr<AWobbly_Monster> Wobbly = GetWorld()->SpawnActor<AWobbly_Monster>("Monster");
 		Wobbly->SetActorLocation(FVector(8438.0f, -1188.0f, 0.0f));
+		Wobbly->ZoneCheckCollisionOn();
+	}
+
+	// 안내판 배치
+	{
+		std::shared_ptr<ASign> Sign = GetWorld()->SpawnActor<ASign>("Monster");
+		Sign->SetActorLocation(FVector(9055.0f, -1240.0f, 0.0f));
+		Sign->SetWidget(Widget);
 	}
 
 	// 다크아이 배치
@@ -124,14 +140,6 @@ void ADarkGameMode::BeginPlay()
 		std::shared_ptr<ADarkEye> DarkEye = GetWorld()->SpawnActor<ADarkEye>("Monster");
 		DarkEye->SetActorLocation(FVector(9117.0f, -1240.0f, 0.0f));
 	}
-	//{
-	//	std::shared_ptr<ADarkEye> DarkEye = GetWorld()->SpawnActor<ADarkEye>("Monster");
-	//	DarkEye->SetActorLocation(FVector(9247.0f, -1240.0f, 0.0f));
-	//}
-	//{
-	//	std::shared_ptr<ADarkEye> DarkEye = GetWorld()->SpawnActor<ADarkEye>("Monster");
-	//	DarkEye->SetActorLocation(FVector(9377.0f, -1240.0f, 0.0f));
-	//}
 
 	// 아이퍼즐 배치
 	{
@@ -291,7 +299,7 @@ void ADarkGameMode::BeginPlay()
 				if (0.5f <= WaitTime)
 				{
 					Widget->ChangeFace("Susie_Face_2");
-					Widget->SetTextScript("* 확 얼굴을\n*뭉개버릴라.");
+					Widget->SetTextScript("* 확 얼굴을\n* 뭉개버릴라.");
 
 					if (true == UEngineInput::IsDown(VK_SPACE))
 					{

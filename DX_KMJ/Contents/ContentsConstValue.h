@@ -10,6 +10,10 @@ public :
 	static int MonsterCount;
 	static int BulletCount;
 
+	static bool IsAttackEnd;
+	static bool IsSoundOn;
+	
+	static bool IsOpeningOff;
 	static bool IsMagicGlassOn;
 
 };

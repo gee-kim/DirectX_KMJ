@@ -22,6 +22,8 @@ void ADarkMap::BeginPlay()
 	Back_Renderer->SetSprite("dark_colmap0.png");
 
 	Renderer->SetOrder(ERenderOrder::Back);
+
+
 }
 
 void ADarkMap::Tick(float _DeltaTime)

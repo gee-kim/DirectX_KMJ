@@ -2,6 +2,9 @@
 #include <EngineCore/GameMode.h>
 
 // Ό³Έν :
+
+class AOpening_BackGround;
+
 class AOpeningGameMode : public AGameMode
 {
 	GENERATED_BODY(AGameMode)
@@ -22,6 +25,10 @@ protected:
 	void Tick(float _DeltaTime) override;
 
 private:
+	std::shared_ptr<AOpening_BackGround> Back = nullptr;
 
+	float LogoOffTime = 3.0f;
+
+	float InpuOnTime = 8.5f;
 };
 

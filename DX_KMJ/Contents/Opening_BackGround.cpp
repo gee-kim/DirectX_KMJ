@@ -34,7 +34,8 @@ void AOpening_BackGround::BeginPlay()
 	}
 
 	UEngineSound::SoundPlay("AUDIO_INTRONOISE.ogg");
-
+	InputOff();
+	
 }
 
 void AOpening_BackGround::Tick(float _DeltaTime)
@@ -61,10 +62,29 @@ void AOpening_BackGround::Tick(float _DeltaTime)
 		if (8.0f <= OnTime)
 		{
 			Logo_Renderer->SetAutoSize(3.0f, true);
+			InputOn();
 		}
 
 	}
-	
 
 
+}
+
+//void AOpening_BackGround::MoveToNextLevel(float _DeltaTime)
+//{
+//	LogoOffTime -= _DeltaTime;
+//	Logo_Renderer->SetAutoSize(LogoOffTime, true);
+//
+//	if (0.5f >= LogoOffTime)
+//	{
+//		GEngine->ChangeLevel("DarkLevel");
+//
+//	}
+//
+//}
+
+void AOpening_BackGround::SetLogoAutoSize(float _Scale)
+{
+	Logo_Renderer->SetAutoSize(_Scale, true);
+		
 }

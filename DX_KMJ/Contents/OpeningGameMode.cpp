@@ -16,7 +16,7 @@ void AOpeningGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
-	std::shared_ptr<AOpening_BackGround> Back = GetWorld()->SpawnActor<AOpening_BackGround>("BackGround");
+	Back = GetWorld()->SpawnActor<AOpening_BackGround>("BackGround");
 		
 	Back->SetActorLocation({ 640.0f, -360.0f, 100.0f });
 
@@ -32,9 +32,17 @@ void AOpeningGameMode::Tick(float _DeltaTime)
 {
 	Super::Tick(_DeltaTime);
 
-	if (true == UEngineInput::IsDown(VK_SPACE))
+	InpuOnTime -= _DeltaTime;
+
+	if (true == UEngineInput::IsDown(VK_SPACE) && 0.0>= InpuOnTime)
 	{
+
+		UEngineSound::SoundPlay("AUDIO_APPEARANCE_ch1.wav");
+		UContentsConstValue::IsOpeningOff = true;
+
 		GEngine->ChangeLevel("DarkLevel");
+
+
 	}
 
 }

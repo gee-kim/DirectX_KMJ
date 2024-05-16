@@ -55,6 +55,6 @@ private:
 	std::list<std::shared_ptr<GameEvent>> Events;
 	std::shared_ptr<GameEvent> CurEvent = nullptr;
 
-	
+	UEngineSoundPlayer BGMPlayer;
 };
 

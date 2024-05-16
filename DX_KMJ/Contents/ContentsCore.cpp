@@ -42,7 +42,7 @@ void UContentsCore::Initialize()
 		UEngineDirectory Dir;
 		Dir.MoveToSearchChild("Resources");
 		Dir.Move("Sound");
-		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".ogg", ".wav" });
+		std::vector<UEngineFile> Files = Dir.GetAllFile({ ".ogg", ".wav" }, true);
 		for (UEngineFile& File : Files)
 		{
 			UEngineSound::Load(File.GetFullPath());
@@ -52,7 +52,7 @@ void UContentsCore::Initialize()
 
 	GEngine->CreateLevel<AOpeningGameMode>("OpeningLevel");
 	GEngine->CreateLevel<ADarkGameMode>("DarkLevel");
-	GEngine->ChangeLevel("OpeningLevel");
+	GEngine->ChangeLevel("DarkLevel");
 
 	
 

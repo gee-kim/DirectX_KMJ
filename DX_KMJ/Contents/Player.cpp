@@ -65,6 +65,13 @@ void APlayer::Tick(float _DeltaTime)
 			State.ChangeState("Player_Escape_Move");
 			HeartRenderer->SetActive(true);
 
+			if (false == UContentsConstValue::IsSoundOn)
+			{
+				BGMPlayer2 = UEngineSound::SoundPlay("battle.ogg");
+				BGMPlayer2.SetVolume(0.5f);
+				UContentsConstValue::IsSoundOn = true;
+			}
+
 		}
 	);
 
@@ -76,20 +83,13 @@ void APlayer::Tick(float _DeltaTime)
 	);
 	Collision->CollisionExit(ECollisionOrder::Monster, [=](std::shared_ptr<UCollision> _Collison)
 		{
-
-
-			if (2 <= UContentsConstValue::MonsterCount)
+			if (true == UContentsConstValue::IsAttackEnd)
 			{
-				//HpWidget->SetActive(false);
 				
+				BGMPlayer2.Off();
+
 				State.ChangeState("Player_Idle");
 				HeartRenderer->SetActive(false);
-
-				//HpWidget->SetHpWidgetOff();
-
-				int a = 0;
-				UContentsConstValue::MonsterCount = 0;
-
 
 				if (IsWidgetOn)
 				{
@@ -102,9 +102,35 @@ void APlayer::Tick(float _DeltaTime)
 				}
 
 				return;
-
 			}
-			++UContentsConstValue::MonsterCount;
+
+			//if (2 <= UContentsConstValue::MonsterCount)
+			//{
+			//	//HpWidget->SetActive(false);
+			//	
+			//	State.ChangeState("Player_Idle");
+			//	HeartRenderer->SetActive(false);
+
+			//	//HpWidget->SetHpWidgetOff();
+
+			//	int a = 0;
+			//	UContentsConstValue::MonsterCount = 0;
+
+
+			//	if (IsWidgetOn)
+			//	{
+			//		HpWidget->SetHpWidgetOff();
+			//		UContentsConstValue::BulletCount = 0;
+
+			//		IsWidgetOn = false;
+
+			//		int a = 0;
+			//	}
+
+			//	return;
+
+			//}
+			//++UContentsConstValue::MonsterCount;
 		}
 	);
 
@@ -112,6 +138,8 @@ void APlayer::Tick(float _DeltaTime)
 	//플레이어가 무브 중 Bullet콜리전 체크 후 위젯 띄우기
 	Collision->CollisionEnter(ECollisionOrder::Bullet, [=](std::shared_ptr<UCollision> _Collison)
 		{
+			BGMPlayer3 = UEngineSound::SoundPlay("snd_bump_ch1.wav");
+			BGMPlayer3.SetVolume(1.5f);
 			//Bullet콜리젼과 만나면 플레이어 떨림?, Hpbar위젯 on
 			// 위젯 on은 최초 한번만 되고 hp down Count 세서 hp애니메이션 체인지 해줘야함.
 			// d키가 눌렸으면 a 만큼 가고 , A 키인지 체크해서 d 로 보내기

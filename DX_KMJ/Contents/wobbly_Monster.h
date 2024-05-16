@@ -22,6 +22,8 @@ public:
 		Renderer->ChangeAnimation(_AnimationName, _Frame);
 	}
 
+	void ZoneCheckCollisionOn();
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;
@@ -29,6 +31,7 @@ protected:
 private:
 	USpriteRenderer* Renderer = nullptr;
 	UCollision* CheckCollision = nullptr;
+	UCollision* AttackZoneCheck = nullptr;
 
 	float BulletSpeed = 500.0f;
 

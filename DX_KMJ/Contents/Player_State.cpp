@@ -299,6 +299,7 @@ void APlayer::Fallen(float _DeltaTime)
 	TimeCount -=_DeltaTime;
 	if (0.0 >= TimeCount)
 	{
+		UEngineSound::SoundPlay("snd_wing_ch1.wav");
 		State.ChangeState("Player_Idle");
 		InputOn();
 	}

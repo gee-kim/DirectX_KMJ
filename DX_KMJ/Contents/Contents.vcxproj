@@ -159,6 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Sign.h" />
     <ClInclude Include="Character.h">
       <SubType>
       </SubType>
@@ -236,6 +237,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Sign.cpp" />
     <ClCompile Include="Character.cpp">
       <SubType>
       </SubType>
