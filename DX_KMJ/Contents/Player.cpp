@@ -67,7 +67,7 @@ void APlayer::Tick(float _DeltaTime)
 
 			if (false == UContentsConstValue::IsSoundOn)
 			{
-				BGMPlayer2 = UEngineSound::SoundPlay("battle.ogg");
+				BGMPlayer2 = UEngineSound::SoundPlay("berdly_chase.ogg");
 				BGMPlayer2.SetVolume(0.5f);
 				UContentsConstValue::IsSoundOn = true;
 			}

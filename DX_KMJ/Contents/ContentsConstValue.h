@@ -15,6 +15,6 @@ public :
 	
 	static bool IsOpeningOff;
 	static bool IsMagicGlassOn;
-
+	static bool IsSignOn;
 };
 

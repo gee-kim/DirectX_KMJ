@@ -11,6 +11,7 @@
 #include "DustPile.h"
 #include "Susie.h"
 #include "Sign.h"
+#include "EndEvent.h"
 
 #include <EngineCore/Camera.h>
 #include "MyWidget.h"
@@ -131,7 +132,7 @@ void ADarkGameMode::BeginPlay()
 	// 안내판 배치
 	{
 		std::shared_ptr<ASign> Sign = GetWorld()->SpawnActor<ASign>("Monster");
-		Sign->SetActorLocation(FVector(9055.0f, -1240.0f, 0.0f));
+		Sign->SetActorLocation(FVector(8900.0f, -1290.0f, 0.0f));
 		Sign->SetWidget(Widget);
 	}
 
@@ -195,6 +196,11 @@ void ADarkGameMode::BeginPlay()
 		DustBubble->SetActorLocation(FVector(11360.0f, -1965.0f, 0.0f));
 	}
 
+	//End 씬
+	{
+		std::shared_ptr<AEndEvent> EndEvent = GetWorld()->SpawnActor<AEndEvent>("Monster");
+		EndEvent->SetActorLocation(FVector(13360.0f, -1965.0f, 0.0f));
+	}
 	{
 		// 이벤트 생성
 		std::shared_ptr<GameEvent> NewEvent = std::make_shared<GameEvent>();
@@ -218,6 +224,8 @@ void ADarkGameMode::BeginPlay()
 		NewEvent->State.CreateState("0");
 		NewEvent->State.SetUpdateFunction("0", [=](float _Delta)
 			{
+				UEngineSound::SoundPlay("snd_bump_ch1.wav");
+
 				Player->State.ChangeState("Player_Event");
 				Susie->Renderer->SetOrder(ERenderOrder::Susie_Bubble);
 				Susie->Renderer->ChangeAnimation("Susie_shock");
@@ -233,14 +241,20 @@ void ADarkGameMode::BeginPlay()
 
 				static float WaitTime = 0.0f;
 				WaitTime += _Delta;
-				if (1.3f <= WaitTime)
+				if (1.3f == WaitTime)
+				{
+					BGMPlayer = UEngineSound::SoundPlay("snd_txtsus_ch1.wav");
+				}
+				else if (1.3f <= WaitTime)
 				{
 
+					Widget->SetTextBoxPos({ -150, 300 });
 					Widget->SetTextBoxOn();
 					Widget->SetFaceOn();
 					Widget->SetTextScript("* 야! 무.. 물러서!\n* 더 가까이 왔다간 확...!");
 					if (true == UEngineInput::IsDown(VK_SPACE))
 					{
+
 						Widget->SetTextScript(" ");
 						NewEvent->State.ChangeState("2");
 
@@ -255,12 +269,18 @@ void ADarkGameMode::BeginPlay()
 			{
 				static float WaitTime = 0.0f;
 				WaitTime += _Delta;
-				if (0.5f <= WaitTime)
+				if (0.5f == WaitTime)
+				{
+					BGMPlayer = UEngineSound::SoundPlay("snd_txtsus_ch1.wav");
+				}
+				else if (0.5f <= WaitTime)
 				{
 					DustBubble->SetActive(false);
 					Susie->Renderer->ChangeAnimation("Susie_Idle_Left");
 					Widget->ChangeFace("Susie_Face_1");
 					Widget->SetTextScript("* ...크...\n* ..크리스?\n* 뭐 뭐냣, 너였냐...!");
+
+
 					if (true == UEngineInput::IsDown(VK_SPACE))
 					{
 
@@ -276,9 +296,14 @@ void ADarkGameMode::BeginPlay()
 			{
 				static float WaitTime = 0.0f;
 				WaitTime += _Delta;
-				if (0.5f <= WaitTime)
+				if (0.5f == WaitTime)
+				{
+					BGMPlayer = UEngineSound::SoundPlay("snd_txtsus_ch1.wav");
+				}
+				else if (0.5f <= WaitTime)
 				{
 					Widget->SetTextScript("* ...무섭게 하지 말라고,\n* 멍청아!");
+
 
 					if (true == UEngineInput::IsDown(VK_SPACE))
 					{
@@ -296,10 +321,15 @@ void ADarkGameMode::BeginPlay()
 			{
 				static float WaitTime = 0.0f;
 				WaitTime += _Delta;
-				if (0.5f <= WaitTime)
+				if (0.5f == WaitTime)
+				{
+					BGMPlayer = UEngineSound::SoundPlay("snd_txtsus_ch1.wav");
+				}
+				else if (0.5f <= WaitTime)
 				{
 					Widget->ChangeFace("Susie_Face_2");
 					Widget->SetTextScript("* 확 얼굴을\n* 뭉개버릴라.");
+
 
 					if (true == UEngineInput::IsDown(VK_SPACE))
 					{
@@ -317,10 +347,15 @@ void ADarkGameMode::BeginPlay()
 			{
 				static float WaitTime = 0.0f;
 				WaitTime += _Delta;
-				if (0.5f <= WaitTime)
+				if (0.5f == WaitTime)
+				{
+					BGMPlayer = UEngineSound::SoundPlay("snd_txtsus_ch1.wav");
+				}
+				else if (0.5f <= WaitTime)
 				{
 					Widget->ChangeFace("Susie_Face_3");
 					Widget->SetTextScript("* 어쨋든..\n*밍기적 거리는건 여기까지 하고,");
+
 
 					if (true == UEngineInput::IsDown(VK_SPACE))
 					{
@@ -337,7 +372,11 @@ void ADarkGameMode::BeginPlay()
 			{
 				static float WaitTime = 0.0f;
 				WaitTime += _Delta;
-				if (0.5f <= WaitTime)
+				if (0.5f == WaitTime)
+				{
+					BGMPlayer = UEngineSound::SoundPlay("snd_txtsus_ch1.wav");
+				}
+				else if (0.5f <= WaitTime)
 				{
 					//Widget->ChangeFace("Susie_Face_2");
 					Widget->SetTextScript("* 여기서 나갈 길을 찾아보자.");
@@ -361,6 +400,7 @@ void ADarkGameMode::BeginPlay()
 				WaitTime += _Delta;
 				if (0.8f <= WaitTime)
 				{
+
 					Susie->Renderer->ChangeAnimation("Susie_Idle_Up");
 
 					NewEvent->State.ChangeState("8");
@@ -373,7 +413,12 @@ void ADarkGameMode::BeginPlay()
 			{
 				static float WaitTime = 0.0f;
 				WaitTime += _Delta;
-				if (1.5f <= WaitTime)
+				if (1.5f == WaitTime)
+				{
+					UEngineSound::SoundPlay("snd_sussurprise.wav");
+
+				}
+				else if (1.5f <= WaitTime)
 				{
 					Widget->SetTextBoxOn();
 					Widget->SetFaceOn();
@@ -395,14 +440,18 @@ void ADarkGameMode::BeginPlay()
 			{
 				static float WaitTime = 0.0f;
 				WaitTime += _Delta;
-				if (1.5f <= WaitTime)
+				if (1.5f == WaitTime)
+				{
+					BGMPlayer = UEngineSound::SoundPlay("snd_txtsus_ch1.wav");
+				}
+
+				else if (1.5f <= WaitTime)
 				{
 					Widget->SetTextBoxOn();
 					Widget->SetFaceOn();
 					Susie->Renderer->ChangeAnimation("Susie_Idle_Left");
 					Widget->ChangeFace("Susie_Face_0");
 					Widget->SetTextScript("* 알 게 뭐야!\n* 너 땜에 이딴 곳에 떨어졌으니,\n* 네가 나가게 해줘야지!");
-
 
 					if (true == UEngineInput::IsDown(VK_SPACE))
 					{
@@ -443,7 +492,12 @@ void ADarkGameMode::BeginPlay()
 
 				static float WaitTime = 0.0f;
 				WaitTime += _Delta;
-				if (0.8f <= WaitTime)
+				if (0.8f == WaitTime)
+				{
+					BGMPlayer = UEngineSound::SoundPlay("snd_txtsus_ch1.wav");
+				}
+
+				else if (0.8f <= WaitTime)
 				{
 					Widget->SetTextBoxOn();
 					Widget->SetFaceOn();
@@ -470,12 +524,14 @@ void ADarkGameMode::BeginPlay()
 
 				Player->PrevPos.clear();
 				Player->Link(Susie.get());
-
+				
 				NewEvent->End();
 				return;
+
 			}
 		);
 
+				
 		Events.push_back(NewEvent);
 
 	}

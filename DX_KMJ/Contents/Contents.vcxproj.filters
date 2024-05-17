@@ -96,6 +96,9 @@
     <ClInclude Include="Sign.h">
       <Filter>PlayLevel\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="EndEvent.h">
+      <Filter>PlayLevel\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContentsCore.cpp">
@@ -162,6 +165,9 @@
       <Filter>GUI</Filter>
     </ClCompile>
     <ClCompile Include="Sign.cpp">
+      <Filter>PlayLevel\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="EndEvent.cpp">
       <Filter>PlayLevel\Actor</Filter>
     </ClCompile>
   </ItemGroup>

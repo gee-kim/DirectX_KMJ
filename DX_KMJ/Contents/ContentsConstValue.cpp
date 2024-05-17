@@ -15,3 +15,4 @@ bool UContentsConstValue::IsOpeningOff = false;
 
 bool UContentsConstValue::IsMagicGlassOn = false;
 
+bool UContentsConstValue::IsSignOn = false;

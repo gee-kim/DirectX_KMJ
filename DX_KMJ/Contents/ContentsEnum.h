@@ -22,6 +22,7 @@ enum class ECollisionOrder
 	SubChar,
 	Monster,
 	Check,
+	EndCheck,
 	Bullet,
 
 };

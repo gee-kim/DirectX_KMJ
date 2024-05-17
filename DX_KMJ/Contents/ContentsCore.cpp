@@ -52,7 +52,7 @@ void UContentsCore::Initialize()
 
 	GEngine->CreateLevel<AOpeningGameMode>("OpeningLevel");
 	GEngine->CreateLevel<ADarkGameMode>("DarkLevel");
-	GEngine->ChangeLevel("DarkLevel");
+	GEngine->ChangeLevel("OpeningLevel");
 
 	
 

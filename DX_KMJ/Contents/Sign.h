@@ -31,7 +31,7 @@ protected:
 private:
 	UCollision* Collision = nullptr;
 
-	APlayer* Player = nullptr;
+	std::shared_ptr<APlayer> Player = nullptr;
 		
 	MyWidget* Widget = nullptr;
 

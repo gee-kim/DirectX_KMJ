@@ -29,6 +29,11 @@ public :
 		TextWidgets[0]->SetText(_Text);
 	}
 	
+	void SetTextBoxPos(FVector _Pos)
+	{
+		TextWidgets[0]->SetPosition(_Pos);
+	}
+
 protected:
 	void BeginPlay() override;
 	void Tick(float _DeltaTime) override;

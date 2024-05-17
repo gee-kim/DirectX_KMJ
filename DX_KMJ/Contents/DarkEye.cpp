@@ -115,11 +115,19 @@ void ADarkEye::Tick(float _DeltaTime)
 			// 모든 랜더러가 off되면 매직유리길 생성
 			if (false == Renderer3->IsActive() && false == Renderer4->IsActive() && false == Renderer5->IsActive())
 			{
+				if (false == UContentsConstValue::IsMagicGlassOn)
+				{
+
+					UEngineSound::SoundPlay("snd_locker_ch1.wav");
+				}
+
 				std::shared_ptr<AMagicalGlass> MagicGlass = GetWorld()->SpawnActor<AMagicalGlass>("MagicGlass");
 				MagicGlass->SetActorLocation(FVector(9642.5f, -1422.0f, 0.0f));
 
 				//플레이어가 유리길 갈수있게
 				UContentsConstValue::IsMagicGlassOn = true;
+
+				
 			}
 			
 
@@ -130,26 +138,31 @@ void ADarkEye::Tick(float _DeltaTime)
 			if (true == UEngineInput::IsDown(VK_SPACE) && false == Renderer3->IsActive() && false == Renderer5->IsActive())
 			{
 				int a = 0;
-			Renderer3->SetActive(true);
-			Renderer5->SetActive(true);
-			
+				UEngineSound::SoundPlay("snd_select_ch1.wav");
+
+				Renderer3->SetActive(true);
+				Renderer5->SetActive(true);
+
 			}
-			else if(true == UEngineInput::IsDown(VK_SPACE) && true == Renderer3->IsActive() && true == Renderer5->IsActive())
+			else if (true == UEngineInput::IsDown(VK_SPACE) && true == Renderer3->IsActive() && true == Renderer5->IsActive())
 			{
+				UEngineSound::SoundPlay("snd_select_ch1.wav");
 				Renderer3->SetActive(false);
 				Renderer5->SetActive(false);
 			}
 			else if (true == UEngineInput::IsDown(VK_SPACE) && false == Renderer3->IsActive() && true == Renderer5->IsActive())
 			{
+				UEngineSound::SoundPlay("snd_select_ch1.wav");
 				Renderer3->SetActive(true);
 				Renderer5->SetActive(false);
 			}
 			else if (true == UEngineInput::IsDown(VK_SPACE) && true == Renderer3->IsActive() && false == Renderer5->IsActive())
 			{
+				UEngineSound::SoundPlay("snd_select_ch1.wav");
 				Renderer3->SetActive(false);
 				Renderer5->SetActive(true);
 			}
-			
+
 
 		});
 
@@ -160,22 +173,26 @@ void ADarkEye::Tick(float _DeltaTime)
 			if (true == UEngineInput::IsDown(VK_SPACE) && false == Renderer3->IsActive() && false == Renderer4->IsActive())
 			{
 				int a = 0;
+				UEngineSound::SoundPlay("snd_select_ch1.wav");
 				Renderer3->SetActive(true);
 				Renderer4->SetActive(true);
 
 			}
 			else if (true == UEngineInput::IsDown(VK_SPACE) && true == Renderer3->IsActive() && true == Renderer4->IsActive())
 			{
+				UEngineSound::SoundPlay("snd_select_ch1.wav");
 				Renderer3->SetActive(false);
 				Renderer4->SetActive(false);
 			}
 			else if (true == UEngineInput::IsDown(VK_SPACE) && false == Renderer3->IsActive() && true == Renderer4->IsActive())
 			{
+				UEngineSound::SoundPlay("snd_select_ch1.wav");
 				Renderer3->SetActive(true);
 				Renderer4->SetActive(false);
 			}
 			else if (true == UEngineInput::IsDown(VK_SPACE) && true == Renderer3->IsActive() && false == Renderer4->IsActive())
 			{
+				UEngineSound::SoundPlay("snd_select_ch1.wav");
 				Renderer3->SetActive(false);
 				Renderer4->SetActive(true);
 			}
@@ -190,11 +207,13 @@ void ADarkEye::Tick(float _DeltaTime)
 			if (true == UEngineInput::IsDown(VK_SPACE) && false == Renderer5->IsActive())
 			{
 				int a = 0;
+				UEngineSound::SoundPlay("snd_select_ch1.wav");
 				Renderer5->SetActive(true);
 
 			}
 			else if (true == UEngineInput::IsDown(VK_SPACE) && true == Renderer5->IsActive())
 			{
+				UEngineSound::SoundPlay("snd_select_ch1.wav");
 				Renderer5->SetActive(false);
 			}
 		
