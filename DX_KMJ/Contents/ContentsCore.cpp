@@ -49,10 +49,14 @@ void UContentsCore::Initialize()
 		}
 
 	}
+	//타이틀명 변경
+	{
+		
+	}
 
 	GEngine->CreateLevel<AOpeningGameMode>("OpeningLevel");
 	GEngine->CreateLevel<ADarkGameMode>("DarkLevel");
-	GEngine->ChangeLevel("OpeningLevel");
+	GEngine->ChangeLevel("DarkLevel");
 
 	
 

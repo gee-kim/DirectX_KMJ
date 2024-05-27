@@ -41,6 +41,7 @@ private:
 	float4 GravityValue;
 
 	float Speed = 200.0f;
+	float RunSpeed = 300.0f;
 	float FreeMoveSpeed = 1000.0f;
 	float DropSpeed = 500.0f;
 
@@ -65,6 +66,7 @@ private:
 	void DebugMessageFunction();
 	void ColorCheck(float4 _NextPos);
 
+	void MoveKeyCheck(float _DeltaTime);
 	void MoveCheck(float4 _Dir);
 
 	UEngineSoundPlayer BGMPlayer1;

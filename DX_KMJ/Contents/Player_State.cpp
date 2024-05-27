@@ -211,6 +211,50 @@ void APlayer::MoveCheck(float4 _Dir)
 	return;
 }
 
+void APlayer::MoveKeyCheck(float _DeltaTime)
+{
+	if (true == UEngineInput::IsPress('A'))
+	{
+		MoveCheck(FVector::Left * _DeltaTime * Speed);
+	}
+
+	if (true == UEngineInput::IsPress('D'))
+	{
+		MoveCheck(FVector::Right * _DeltaTime * Speed);
+	}
+
+	if (true == UEngineInput::IsPress('W'))
+	{
+		MoveCheck(FVector::Up * _DeltaTime * Speed);
+	}
+
+	if (true == UEngineInput::IsPress('S'))
+	{
+		MoveCheck(FVector::Down * _DeltaTime * Speed);
+	}
+	//쉬프트 키가 눌리면 Speed 빠르게
+	if (true == UEngineInput::IsPress('A') && true == UEngineInput::IsPress(VK_SHIFT))
+	{
+		MoveCheck(FVector::Left * _DeltaTime * RunSpeed);
+	}
+
+	if (true == UEngineInput::IsPress('D') && true == UEngineInput::IsPress(VK_SHIFT))
+	{
+		MoveCheck(FVector::Right * _DeltaTime * RunSpeed);
+	}
+
+	if (true == UEngineInput::IsPress('W') && true == UEngineInput::IsPress(VK_SHIFT))
+	{
+		MoveCheck(FVector::Up * _DeltaTime * RunSpeed);
+	}
+
+	if (true == UEngineInput::IsPress('S') && true == UEngineInput::IsPress(VK_SHIFT))
+	{
+		MoveCheck(FVector::Down * _DeltaTime * RunSpeed);
+	}
+
+}
+
 void APlayer::Move(/*const APlayer* this,*/ float _DeltaTime)
 {
 	// 1초에 200을 간다.
@@ -232,33 +276,52 @@ void APlayer::Move(/*const APlayer* this,*/ float _DeltaTime)
 		DirAnimationChange("Kris_Move");
 	}
 
-	if (true == UEngineInput::IsPress('A'))
-	{
-		MoveCheck(FVector::Left * _DeltaTime * Speed);
-	}
+	MoveKeyCheck(_DeltaTime);
+	//if (true == UEngineInput::IsPress('A'))
+	//{
+	//	MoveCheck(FVector::Left * _DeltaTime * Speed);
+	//}
 
-	if (true == UEngineInput::IsPress('D'))
-	{
-		MoveCheck(FVector::Right * _DeltaTime * Speed);
-	}
+	//if (true == UEngineInput::IsPress('D'))
+	//{
+	//	MoveCheck(FVector::Right * _DeltaTime * Speed);
+	//}
 
-	if (true == UEngineInput::IsPress('W'))
-	{
-		MoveCheck(FVector::Up * _DeltaTime * Speed);
-	}
+	//if (true == UEngineInput::IsPress('W'))
+	//{
+	//	MoveCheck(FVector::Up * _DeltaTime * Speed);
+	//}
 
-	if (true == UEngineInput::IsPress('S'))
-	{
-		MoveCheck(FVector::Down * _DeltaTime * Speed);
-	}
+	//if (true == UEngineInput::IsPress('S'))
+	//{
+	//	MoveCheck(FVector::Down * _DeltaTime * Speed);
+	//}
+	////쉬프트 키가 눌리면 Speed 빠르게
+	//if (true == UEngineInput::IsPress('A') && true == UEngineInput::IsPress(VK_SHIFT))
+	//{
+	//	MoveCheck(FVector::Left * _DeltaTime * RunSpeed);
+	//}
+
+	//if (true == UEngineInput::IsPress('D') && true == UEngineInput::IsPress(VK_SHIFT))
+	//{
+	//	MoveCheck(FVector::Right * _DeltaTime * RunSpeed);
+	//}
+
+	//if (true == UEngineInput::IsPress('W') && true == UEngineInput::IsPress(VK_SHIFT))
+	//{
+	//	MoveCheck(FVector::Up * _DeltaTime * RunSpeed);
+	//}
+
+	//if (true == UEngineInput::IsPress('S') && true == UEngineInput::IsPress(VK_SHIFT))
+	//{
+	//	MoveCheck(FVector::Down * _DeltaTime * RunSpeed);
+	//}
 
 	if (true == UEngineInput::IsFree('A') && true == IsFree('D') && true == IsFree('W') && true == IsFree('S'))
 	{
 		State.ChangeState("Player_Idle");
 		return;
 	}
-
-
 }
 
 void APlayer::FreeMove(float _DeltaTime)
@@ -330,7 +393,9 @@ void APlayer::Escape_Move(float _DeltaTime)
 		DirAnimationChange("Kris_Heart");
 	}
 
-	if (true == UEngineInput::IsPress('A'))
+	MoveKeyCheck(_DeltaTime);
+
+	/*if (true == UEngineInput::IsPress('A'))
 	{
 		ColorCheck(FVector::Left * _DeltaTime * Speed);
 
@@ -375,7 +440,7 @@ void APlayer::Escape_Move(float _DeltaTime)
 			AddActorLocation(FVector::Down * _DeltaTime * Speed);
 		}
 		
-	}
+	}*/
 
 	if (true == UEngineInput::IsFree('A') && true == IsFree('D') && true == IsFree('W') && true == IsFree('S'))
 	{
